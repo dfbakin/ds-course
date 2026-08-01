@@ -1,0 +1,93 @@
+{
+  "seed": 20260729,
+  "n_rows": 20000,
+  "raw_features": [
+    "cpu_util",
+    "mem_pressure",
+    "disk_latency_ms",
+    "request_rate_rps",
+    "error_rate_pct",
+    "queue_depth",
+    "cache_hit_ratio",
+    "temperature_c"
+  ],
+  "model_features": [
+    "cpu_util",
+    "mem_pressure",
+    "log_disk_latency",
+    "log_request_rate",
+    "log1p_error_rate",
+    "queue_depth",
+    "cache_hit_ratio",
+    "temperature_c"
+  ],
+  "intercept": -2.25,
+  "beta": {
+    "cpu_util": 0.62,
+    "mem_pressure": 0.45,
+    "log_disk_latency": 0.7,
+    "log_request_rate": 0.3,
+    "log1p_error_rate": 0.85,
+    "queue_depth": 0.4,
+    "cache_hit_ratio": -0.55,
+    "temperature_c": 0.22
+  },
+  "gamma": {
+    "cpu_util*queue_depth": 0.55,
+    "log_disk_latency*log_request_rate": 0.45,
+    "cache_hit_ratio*log_request_rate": -0.4,
+    "cpu_util*mem_pressure": 0.35,
+    "log1p_error_rate*log_request_rate": 0.3,
+    "cpu_util*cpu_util": 0.28
+  },
+  "standardiser": {
+    "cpu_util": [
+      0.5858947583699805,
+      0.16760368179962118
+    ],
+    "mem_pressure": [
+      0.4639674074361117,
+      0.18336456801698844
+    ],
+    "log_disk_latency": [
+      2.1153944952466865,
+      0.6218926731079791
+    ],
+    "log_request_rate": [
+      5.813219248646654,
+      0.9551164833271588
+    ],
+    "log1p_error_rate": [
+      0.4257951205030258,
+      0.3925661058894925
+    ],
+    "queue_depth": [
+      9.0659,
+      5.718807322335664
+    ],
+    "cache_hit_ratio": [
+      0.8819928378178306,
+      0.08415866141826525
+    ],
+    "temperature_c": [
+      46.05949657174535,
+      6.016152659505907
+    ]
+  },
+  "post_deploy_shift": {
+    "disk_latency_ms": 0.06,
+    "error_rate_pct": 0.045
+  },
+  "incident_rate": 0.2469,
+  "incident_rate_pre": 0.2329090909090909,
+  "incident_rate_post": 0.264,
+  "bayes_auc_clean_rows": 0.8969416559081804,
+  "main_effects_only_auc_clean_rows": 0.8716730580128427,
+  "n_silent_failure": 240,
+  "n_sensor_glitch": 120,
+  "split_sizes": {
+    "train": 12000,
+    "val": 4000,
+    "test": 4000
+  }
+}

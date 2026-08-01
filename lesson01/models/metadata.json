@@ -1,0 +1,26 @@
+{
+  "seed": 20260729,
+  "features": [
+    "cpu_util",
+    "mem_pressure",
+    "log_disk_latency",
+    "log_request_rate",
+    "log1p_error_rate",
+    "queue_depth",
+    "cache_hit_ratio",
+    "temperature_c"
+  ],
+  "best_threshold_on_val": 0.37413677811895896,
+  "test_auc": {
+    "A \u00b7 plain features": 0.839385963761895,
+    "B \u00b7 cross-features": 0.8634374313805997
+  },
+  "delong": {
+    "auc_1": 0.8393859637618951,
+    "auc_2": 0.8634374313805996,
+    "diff": 0.02405146761870447,
+    "se": 0.003966569040371687,
+    "z": 6.063544431953396,
+    "p_value": 1.3315397450873572e-09
+  }
+}
