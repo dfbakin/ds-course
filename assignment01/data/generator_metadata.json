@@ -1,0 +1,67 @@
+{
+  "seed": 20260815,
+  "n_rows": 34620,
+  "dev_period_end": "2026-03-06 00:00:00",
+  "deploy_timestamps": [
+    "2026-01-17 00:00:00",
+    "2026-01-29 00:00:00",
+    "2026-02-10 00:00:00",
+    "2026-02-22 00:00:00"
+  ],
+  "phase_target_rates": {
+    "A": 0.2,
+    "B": 0.205,
+    "C": 0.255,
+    "D": 0.216,
+    "E": 0.2244
+  },
+  "phase_intercept_offsets": {
+    "A": -2.2748116195725743,
+    "B": -2.3045124520140234,
+    "C": -1.9197111794201192,
+    "D": -2.064808483206434,
+    "E": -1.975773564336123
+  },
+  "beta": {
+    "cpu_util": 0.55,
+    "mem_util": 0.34,
+    "log_p99_latency": 0.62,
+    "log_request_rate": 0.26,
+    "log1p_error_rate": 0.7,
+    "queue_depth": 0.38,
+    "cache_hit_ratio": -0.46,
+    "log_gc_pause": 0.3,
+    "log_active_connections": 0.18,
+    "log_disk_io_wait": 0.22
+  },
+  "gamma": {
+    "cpu_util*queue_depth": 0.6,
+    "log_p99_latency*log_request_rate": 0.52
+  },
+  "categorical_effects": {
+    "region": {
+      "us-east-1": -0.18,
+      "us-west-2": -0.09,
+      "eu-central-1": 0.04,
+      "ap-south-1": 1.04
+    },
+    "instance_type": {
+      "m5.large": 0.4,
+      "c5.xlarge": 0.0,
+      "r5.2xlarge": -0.54
+    },
+    "service_tier": {
+      "free": -0.76,
+      "pro": 0.0,
+      "enterprise": 0.99
+    }
+  },
+  "drift": {
+    "cache_end": 0.3,
+    "error_end": 0.12,
+    "gc_growth": 3.4,
+    "traffic_growth": 0.45,
+    "latency_growth": 0.35
+  },
+  "n_duplicates": 60
+}

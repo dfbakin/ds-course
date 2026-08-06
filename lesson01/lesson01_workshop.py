@@ -8,7 +8,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.16.6
 #   kernelspec:
-#     display_name: DS Course (lesson01)
+#     display_name: DS Course
 #     language: python
 #     name: ds-course
 # ---
