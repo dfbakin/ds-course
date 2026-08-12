@@ -1,0 +1,106 @@
+{
+  "seed": 20260808,
+  "dataset": "fleet_incidents.csv",
+  "incident_rate": 0.21706666666666666,
+  "n_features_numeric": 8,
+  "n_features_after_ohe": 213,
+  "ladder": {
+    "logreg_numeric": {
+      "val_auc": 0.714816416677192,
+      "test_auc": 0.7190141701635955,
+      "n_features": 8
+    },
+    "logreg_ohe": {
+      "val_auc": 0.7688626057585458,
+      "test_auc": 0.7683859327661082,
+      "n_features": 213
+    },
+    "tree": {
+      "val_auc": 0.7436710717034812,
+      "test_auc": 0.7366421080578787,
+      "n_features": 213
+    },
+    "catboost_default": {
+      "val_auc": 0.8521289613347034,
+      "test_auc": 0.8440814439454906,
+      "best_iteration": 319,
+      "n_features": 13
+    },
+    "catboost_tuned": {
+      "val_auc": 0.8579276365721265,
+      "test_auc": 0.8472993050610156,
+      "best_iteration": 776,
+      "best_params": {
+        "depth": 6,
+        "learning_rate": 0.06175443455345235,
+        "l2_leaf_reg": 2.9662606383075234
+      },
+      "n_trials": 30,
+      "sampler": "TPESampler(seed=20260808)"
+    }
+  },
+  "gaps": {
+    "numeric_to_ohe": 0.04937176260251275,
+    "ohe_to_catboost": 0.07569551117938234,
+    "default_to_tuned": 0.0032178611155250225
+  },
+  "lasso_support_recovery": {
+    "true_support": [
+      "cpu_util",
+      "request_rate_rps",
+      "queue_depth"
+    ],
+    "alpha_grid": "np.logspace(-2, 2, 81)",
+    "n_alphas_recovering": 38,
+    "recovering_alpha_min": 0.223872113856834,
+    "recovering_alpha_max": 15.848931924611142,
+    "recovered": true,
+    "lasso_cv_alpha": 0.19952623149688797,
+    "lasso_cv_support": [
+      "cpu_util",
+      "request_rate_rps",
+      "error_rate_pct",
+      "queue_depth"
+    ],
+    "lasso_cv_recovers": false,
+    "example_alpha": 1.9952623149688808,
+    "example_coefficients": {
+      "cpu_util": 22.780791802479936,
+      "mem_pressure": 0.0,
+      "disk_latency_ms": 0.0,
+      "request_rate_rps": 17.29725876573413,
+      "error_rate_pct": 0.0,
+      "queue_depth": 14.170861350092283,
+      "cache_hit_ratio": 0.0,
+      "node_age_days": 0.0
+    },
+    "test_r2_at_example_alpha": 0.7089313723200701
+  },
+  "ridge_collinearity": {
+    "coefficient_path": {
+      "ols": {
+        "cpu_util": 24.728245464915805,
+        "mem_pressure": -0.19033722924172025
+      },
+      "ridge_alpha_1e+03": {
+        "cpu_util": 21.629287279608118,
+        "mem_pressure": 1.9696497960065746
+      },
+      "ridge_alpha_1e+04": {
+        "cpu_util": 14.384972514178173,
+        "mem_pressure": 4.708939169529671
+      },
+      "ridge_alpha_1e+05": {
+        "cpu_util": 4.373013793247306,
+        "mem_pressure": 2.262127685763427
+      }
+    },
+    "abs_gap_path": [
+      24.918582694157525,
+      19.659637483601543,
+      9.676033344648502,
+      2.1108861074838794
+    ],
+    "gap_shrinks_monotonically": true
+  }
+}

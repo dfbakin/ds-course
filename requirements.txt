@@ -1,4 +1,4 @@
-# Data science course — environment for Lesson 01
+# Data science course — one environment for all lessons
 # Python 3.12.  Install with:
 #   python3 -m venv .venv && source .venv/bin/activate
 #   pip install -r requirements.txt
@@ -11,6 +11,10 @@ scipy==1.15.1
 scikit-learn==1.6.1
 matplotlib==3.10.0
 joblib==1.4.2
+
+# lesson 3: gradient boosting and hyperparameter search
+catboost==1.2.10
+optuna==4.9.0
 
 # notebook <-> .py round-tripping and execution
 jupytext==1.16.6

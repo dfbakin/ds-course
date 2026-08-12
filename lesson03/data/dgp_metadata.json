@@ -1,0 +1,2556 @@
+{
+  "seed": 20260808,
+  "n_rows": 30000,
+  "raw_features": [
+    "cpu_util",
+    "mem_pressure",
+    "disk_latency_ms",
+    "request_rate_rps",
+    "error_rate_pct",
+    "queue_depth",
+    "cache_hit_ratio",
+    "node_age_days"
+  ],
+  "model_features": [
+    "cpu_util",
+    "mem_pressure",
+    "log_disk_latency",
+    "log_request_rate",
+    "log1p_error_rate",
+    "queue_depth",
+    "cache_hit_ratio",
+    "log1p_node_age"
+  ],
+  "categorical_features": [
+    "region",
+    "cluster_id",
+    "instance_type",
+    "deploy_channel",
+    "os_image"
+  ],
+  "incident_mechanism": {
+    "intercept": -2.7,
+    "beta": {
+      "cpu_util": 0.26,
+      "mem_pressure": 0.08,
+      "log_disk_latency": 0.22,
+      "log_request_rate": 0.06,
+      "log1p_error_rate": 0.36,
+      "queue_depth": 0.11,
+      "cache_hit_ratio": -0.17,
+      "log1p_node_age": 0.05
+    },
+    "region_offsets": {
+      "us-east": -0.1,
+      "us-west": 0.05,
+      "eu-west": -0.22,
+      "eu-central": 0.12,
+      "ap-south": 0.3,
+      "ap-northeast": -0.05,
+      "sa-east": 0.2,
+      "ca-central": -0.28,
+      "af-south": 0.15,
+      "me-central": -0.17
+    },
+    "deploy_channel_offsets": {
+      "stable": 0.0,
+      "beta": 0.55,
+      "canary": 1.05
+    },
+    "instance_offsets": {
+      "m6i.large": -0.12,
+      "m6i.2xlarge": 0.06,
+      "c6i.xlarge": 0.02,
+      "c6i.4xlarge": 0.25,
+      "r6i.2xlarge": -0.18,
+      "t3.large": 0.1
+    },
+    "os_image_offsets": {
+      "ubuntu-22.04-v1": 0.04,
+      "ubuntu-22.04-v2": -0.02,
+      "ubuntu-22.04-v3": 0.1,
+      "ubuntu-24.04-v1": -0.06,
+      "ubuntu-24.04-v2": 0.02,
+      "ubuntu-24.04-v3": -0.12,
+      "debian-12-v1": 0.08,
+      "debian-12-v2": 0.0,
+      "debian-12-v3": -0.08,
+      "al2023-v1": 0.12,
+      "al2023-v2": -0.05,
+      "al2023-v3": -0.03
+    },
+    "cluster_effect_sd": 0.55,
+    "cluster_extreme_frac": 0.45,
+    "cluster_extreme_sd": 3.4,
+    "disk_latency_threshold_ms": 14.1,
+    "threshold_base": 0.85,
+    "threshold_risky_boost": 0.9,
+    "cpu_mem_interaction": 0.75,
+    "cpu_mem_queue_interaction": 0.9,
+    "error_slope_extra": {
+      "stable": 0.0,
+      "beta": 0.45,
+      "canary": 0.8
+    },
+    "region_cpu_slope": {
+      "us-east": 0.010383483890195722,
+      "us-west": -0.08171158604318157,
+      "eu-west": -0.2589698415047795,
+      "eu-central": -0.6566220018308435,
+      "ap-south": -0.06521241032202052,
+      "ap-northeast": 0.8822652399733367,
+      "sa-east": 0.5917347948846055,
+      "ca-central": 0.46545547765750617,
+      "af-south": -0.17870197488805886,
+      "me-central": 0.4963358154721748
+    },
+    "instance_queue_slope": {
+      "m6i.large": -0.2255858816303327,
+      "m6i.2xlarge": 0.28461138007658254,
+      "c6i.xlarge": 0.025072392573584932,
+      "c6i.4xlarge": 0.14703229633367132,
+      "r6i.2xlarge": -0.17434967501806928,
+      "t3.large": 0.32595219156819394
+    },
+    "os_error_slope": {
+      "ubuntu-22.04-v1": -0.04857421621952429,
+      "ubuntu-22.04-v2": -0.043687080279128314,
+      "ubuntu-22.04-v3": -0.26936255526021907,
+      "ubuntu-24.04-v1": -0.058934855736441444,
+      "ubuntu-24.04-v2": 0.05092449232236224,
+      "ubuntu-24.04-v3": 0.23469736667047456,
+      "debian-12-v1": -0.17923216667670053,
+      "debian-12-v2": 0.11180039989327371,
+      "debian-12-v3": -0.1026227577274839,
+      "al2023-v1": 0.03916413354242224,
+      "al2023-v2": 0.20485963275775393,
+      "al2023-v3": -0.09407004150780199
+    }
+  },
+  "power_mechanism": {
+    "base_watts": 205.0,
+    "coefficients": {
+      "cpu_util": 145.0,
+      "mem_pressure": 0.0,
+      "disk_latency_ms": 0.0,
+      "request_rate_rps": 0.045,
+      "error_rate_pct": 0.0,
+      "queue_depth": 2.8,
+      "cache_hit_ratio": 0.0,
+      "node_age_days": 0.0
+    },
+    "true_support": [
+      "cpu_util",
+      "request_rate_rps",
+      "queue_depth"
+    ],
+    "instance_offsets": {
+      "m6i.large": -20.0,
+      "m6i.2xlarge": 14.0,
+      "c6i.xlarge": -6.0,
+      "c6i.4xlarge": 38.0,
+      "r6i.2xlarge": 20.0,
+      "t3.large": -30.0
+    },
+    "noise_sd": 16.0
+  },
+  "standardiser": {
+    "cpu_util": [
+      0.584345091780466,
+      0.16801614247765614
+    ],
+    "mem_pressure": [
+      0.4621151993573922,
+      0.18222649873114263
+    ],
+    "log_disk_latency": [
+      2.0783196267799515,
+      0.5549154996808566
+    ],
+    "log_request_rate": [
+      5.806632532500938,
+      0.9554730559378425
+    ],
+    "log1p_error_rate": [
+      0.41375678919550335,
+      0.3675748239750183
+    ],
+    "queue_depth": [
+      8.966,
+      5.633510805882953
+    ],
+    "cache_hit_ratio": [
+      0.8826515519681045,
+      0.08414022171972439
+    ],
+    "log1p_node_age": [
+      5.468789498758248,
+      1.037106416370025
+    ]
+  },
+  "clusters": {
+    "us-east-c00": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -3.482773636165447,
+      "slopes": {
+        "log_disk_latency": 0.43881976323523775,
+        "cpu_util": 0.43247797499959584,
+        "queue_depth": -0.1900739074657803,
+        "log1p_error_rate": 0.34588906721405865,
+        "mem_pressure": -0.23303565580005914,
+        "cache_hit_ratio": -0.4299178436977393
+      }
+    },
+    "us-east-c01": {
+      "region": "us-east",
+      "size": 144,
+      "incident_offset": 0.5934787494107042,
+      "slopes": {
+        "log_disk_latency": -0.7856742202421008,
+        "cpu_util": 0.2914478943054553,
+        "queue_depth": -0.06355567657864715,
+        "log1p_error_rate": 0.2915241702471327,
+        "mem_pressure": -0.04084304609860102,
+        "cache_hit_ratio": 0.4262154946393712
+      }
+    },
+    "us-east-c02": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": 4.311735229593232,
+      "slopes": {
+        "log_disk_latency": 0.3768298300061853,
+        "cpu_util": 0.31385745157591655,
+        "queue_depth": 0.0588781686163945,
+        "log1p_error_rate": -0.7076623984354137,
+        "mem_pressure": -0.6862579175481957,
+        "cache_hit_ratio": 0.03057042365302504
+      }
+    },
+    "us-east-c03": {
+      "region": "us-east",
+      "size": 79,
+      "incident_offset": 0.7009921471463613,
+      "slopes": {
+        "log_disk_latency": 0.40817585792876937,
+        "cpu_util": 0.28048389870314994,
+        "queue_depth": 0.1682104412286495,
+        "log1p_error_rate": -0.079909667329437,
+        "mem_pressure": -0.10854192792707054,
+        "cache_hit_ratio": 0.457265916811314
+      }
+    },
+    "us-east-c04": {
+      "region": "us-east",
+      "size": 163,
+      "incident_offset": -0.2789132435122057,
+      "slopes": {
+        "log_disk_latency": -0.5645448314631256,
+        "cpu_util": 0.7127067647014953,
+        "queue_depth": -0.634242455352752,
+        "log1p_error_rate": -0.04655573525849051,
+        "mem_pressure": -0.041330869212028436,
+        "cache_hit_ratio": 0.09314754685987355
+      }
+    },
+    "us-east-c05": {
+      "region": "us-east",
+      "size": 146,
+      "incident_offset": -1.0116577828714977,
+      "slopes": {
+        "log_disk_latency": -0.2370291146690164,
+        "cpu_util": 0.0008920582154735174,
+        "queue_depth": 0.5214578603133415,
+        "log1p_error_rate": -0.4303279786514514,
+        "mem_pressure": -0.12719822183805263,
+        "cache_hit_ratio": -0.36522306170470437
+      }
+    },
+    "us-east-c06": {
+      "region": "us-east",
+      "size": 49,
+      "incident_offset": -2.5552473847055834,
+      "slopes": {
+        "log_disk_latency": -0.1705635990778156,
+        "cpu_util": 0.19629302688970526,
+        "queue_depth": 0.18866286202371943,
+        "log1p_error_rate": -0.2112010983086048,
+        "mem_pressure": 0.2909344200125307,
+        "cache_hit_ratio": 0.11738191403888991
+      }
+    },
+    "us-east-c07": {
+      "region": "us-east",
+      "size": 235,
+      "incident_offset": -0.8283466334574862,
+      "slopes": {
+        "log_disk_latency": -0.5251071593464715,
+        "cpu_util": -0.34295497330279673,
+        "queue_depth": 0.3449251834984832,
+        "log1p_error_rate": 0.1877624563927831,
+        "mem_pressure": -0.37101598065397534,
+        "cache_hit_ratio": 0.2448073923044157
+      }
+    },
+    "us-east-c08": {
+      "region": "us-east",
+      "size": 115,
+      "incident_offset": -2.6953211276768547,
+      "slopes": {
+        "log_disk_latency": -0.2712304067881807,
+        "cpu_util": 0.057227727675819046,
+        "queue_depth": 0.21924997898572746,
+        "log1p_error_rate": -0.6934291534013305,
+        "mem_pressure": -0.2768519377893262,
+        "cache_hit_ratio": -0.004860646068059599
+      }
+    },
+    "us-east-c09": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -0.9705712552881561,
+      "slopes": {
+        "log_disk_latency": 0.4117360883623751,
+        "cpu_util": -0.6531170207594963,
+        "queue_depth": -0.12754670599252627,
+        "log1p_error_rate": 0.42144553261406154,
+        "mem_pressure": -0.14186068883922015,
+        "cache_hit_ratio": -0.33641287074810516
+      }
+    },
+    "us-east-c10": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -0.06918049244525595,
+      "slopes": {
+        "log_disk_latency": 0.20880076580209742,
+        "cpu_util": 0.169991915116587,
+        "queue_depth": 0.8330652785224171,
+        "log1p_error_rate": 0.38484095130428,
+        "mem_pressure": -0.024734218336989352,
+        "cache_hit_ratio": -0.38171090358715337
+      }
+    },
+    "us-east-c11": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -0.455654961348654,
+      "slopes": {
+        "log_disk_latency": 0.3065730287315419,
+        "cpu_util": 0.3133185902895719,
+        "queue_depth": -0.25545292200548314,
+        "log1p_error_rate": 0.0785900964126204,
+        "mem_pressure": 0.4582613215674182,
+        "cache_hit_ratio": -0.028088996734088798
+      }
+    },
+    "us-east-c12": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": 2.1011757026693836,
+      "slopes": {
+        "log_disk_latency": -0.479524744388661,
+        "cpu_util": -0.1359129575331396,
+        "queue_depth": 0.04330363832476837,
+        "log1p_error_rate": 0.05159205413490923,
+        "mem_pressure": -0.014819405431824927,
+        "cache_hit_ratio": -0.49617511535377384
+      }
+    },
+    "us-east-c13": {
+      "region": "us-east",
+      "size": 511,
+      "incident_offset": -1.114494897959774,
+      "slopes": {
+        "log_disk_latency": 0.13219359147236598,
+        "cpu_util": 0.03439140288315827,
+        "queue_depth": -0.3082739643331652,
+        "log1p_error_rate": 0.09123236458564307,
+        "mem_pressure": -0.08470893558678315,
+        "cache_hit_ratio": -0.10033888593699956
+      }
+    },
+    "us-east-c14": {
+      "region": "us-east",
+      "size": 289,
+      "incident_offset": -0.8405473139515608,
+      "slopes": {
+        "log_disk_latency": -0.13768298979249413,
+        "cpu_util": -0.10621943686057805,
+        "queue_depth": -0.16906507186458658,
+        "log1p_error_rate": 0.0710991090918756,
+        "mem_pressure": 0.5046910654426346,
+        "cache_hit_ratio": 0.08339240888291125
+      }
+    },
+    "us-east-c15": {
+      "region": "us-east",
+      "size": 509,
+      "incident_offset": -0.3329696204332188,
+      "slopes": {
+        "log_disk_latency": 0.31446344798472686,
+        "cpu_util": 0.08381282219598649,
+        "queue_depth": -0.2619018443290363,
+        "log1p_error_rate": -0.2740275775033412,
+        "mem_pressure": 0.2653422958338448,
+        "cache_hit_ratio": 0.4025453566586583
+      }
+    },
+    "us-east-c16": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -0.10564430067467398,
+      "slopes": {
+        "log_disk_latency": 0.41476758854710255,
+        "cpu_util": 0.021247876125791557,
+        "queue_depth": -0.5940959517789463,
+        "log1p_error_rate": -0.19146631835600977,
+        "mem_pressure": 0.0022098706548814412,
+        "cache_hit_ratio": 0.23812707547489706
+      }
+    },
+    "us-east-c17": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": 1.2059258665819164,
+      "slopes": {
+        "log_disk_latency": 0.852321267408925,
+        "cpu_util": -0.19468856107125806,
+        "queue_depth": 0.3110090443930687,
+        "log1p_error_rate": 0.08081623837647336,
+        "mem_pressure": -0.1026241346128861,
+        "cache_hit_ratio": -0.10555214760735965
+      }
+    },
+    "us-east-c18": {
+      "region": "us-east",
+      "size": 11,
+      "incident_offset": 0.7904825570443992,
+      "slopes": {
+        "log_disk_latency": -0.48012464852704173,
+        "cpu_util": 0.10980365334533813,
+        "queue_depth": 0.23167285589198644,
+        "log1p_error_rate": 0.12573144851738058,
+        "mem_pressure": 0.3466805838006007,
+        "cache_hit_ratio": 0.1995295449974786
+      }
+    },
+    "us-east-c19": {
+      "region": "us-east",
+      "size": 382,
+      "incident_offset": -0.2858308733937858,
+      "slopes": {
+        "log_disk_latency": -0.767542251099606,
+        "cpu_util": 0.24428035289913522,
+        "queue_depth": -0.389314257858136,
+        "log1p_error_rate": -0.5730771111593438,
+        "mem_pressure": -0.005563866214746455,
+        "cache_hit_ratio": 0.2751818244406336
+      }
+    },
+    "us-east-c20": {
+      "region": "us-east",
+      "size": 41,
+      "incident_offset": -0.28426103352512755,
+      "slopes": {
+        "log_disk_latency": 0.26421051901517784,
+        "cpu_util": 0.4077198791333183,
+        "queue_depth": 0.0871008196860388,
+        "log1p_error_rate": 0.1923621644818734,
+        "mem_pressure": 0.5364298868656497,
+        "cache_hit_ratio": 0.20499119325929846
+      }
+    },
+    "us-east-c21": {
+      "region": "us-east",
+      "size": 978,
+      "incident_offset": 0.4189219678610048,
+      "slopes": {
+        "log_disk_latency": -0.2873863133128761,
+        "cpu_util": 0.012610291378203214,
+        "queue_depth": 0.0684391840195061,
+        "log1p_error_rate": -0.2621552147542509,
+        "mem_pressure": -0.3334551668159631,
+        "cache_hit_ratio": -0.42913417703443574
+      }
+    },
+    "us-east-c22": {
+      "region": "us-east",
+      "size": 285,
+      "incident_offset": 0.08716653036889867,
+      "slopes": {
+        "log_disk_latency": -0.07452239272153664,
+        "cpu_util": 0.02334450092128831,
+        "queue_depth": -0.0006519279890450393,
+        "log1p_error_rate": -0.08694918853869787,
+        "mem_pressure": -0.04575448806756835,
+        "cache_hit_ratio": 0.20379733543767728
+      }
+    },
+    "us-east-c23": {
+      "region": "us-east",
+      "size": 161,
+      "incident_offset": -2.664026143144073,
+      "slopes": {
+        "log_disk_latency": 1.0516739703198215,
+        "cpu_util": 0.34181322653045426,
+        "queue_depth": 0.45055033428778446,
+        "log1p_error_rate": 0.5043116707079921,
+        "mem_pressure": -0.20964674889546764,
+        "cache_hit_ratio": -0.08665091545983229
+      }
+    },
+    "us-east-c24": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -0.5941599267080991,
+      "slopes": {
+        "log_disk_latency": -0.7621035967215444,
+        "cpu_util": 0.04555733587953436,
+        "queue_depth": -0.30388508085841925,
+        "log1p_error_rate": 0.24895739544569984,
+        "mem_pressure": -0.3511368147989838,
+        "cache_hit_ratio": -0.1759233252145666
+      }
+    },
+    "us-east-c25": {
+      "region": "us-east",
+      "size": 187,
+      "incident_offset": -0.9745739068577765,
+      "slopes": {
+        "log_disk_latency": 0.4502990926815269,
+        "cpu_util": 0.023467983590530594,
+        "queue_depth": 0.09088187566464252,
+        "log1p_error_rate": 0.026315808694933947,
+        "mem_pressure": 0.12206272093977062,
+        "cache_hit_ratio": 0.3558590236032204
+      }
+    },
+    "us-east-c26": {
+      "region": "us-east",
+      "size": 412,
+      "incident_offset": 0.2819653380671224,
+      "slopes": {
+        "log_disk_latency": 1.1933053597789929,
+        "cpu_util": -0.45131589475585926,
+        "queue_depth": -0.2608142459829976,
+        "log1p_error_rate": -0.4963034648402419,
+        "mem_pressure": 0.22608102290893467,
+        "cache_hit_ratio": -0.23915083880252616
+      }
+    },
+    "us-east-c27": {
+      "region": "us-east",
+      "size": 8,
+      "incident_offset": -0.29833161523782203,
+      "slopes": {
+        "log_disk_latency": -0.5047939876079798,
+        "cpu_util": -0.10459711339030875,
+        "queue_depth": -0.17231423060565673,
+        "log1p_error_rate": 0.20141236593326028,
+        "mem_pressure": -0.43106561542239347,
+        "cache_hit_ratio": 0.216348686001968
+      }
+    },
+    "us-east-c28": {
+      "region": "us-east",
+      "size": 23,
+      "incident_offset": -2.6253182354837303,
+      "slopes": {
+        "log_disk_latency": -0.45095989006415244,
+        "cpu_util": 0.7794482063591798,
+        "queue_depth": -0.288822633063506,
+        "log1p_error_rate": -0.5280190754125322,
+        "mem_pressure": -0.005428832652267368,
+        "cache_hit_ratio": -0.07174713796129467
+      }
+    },
+    "us-west-c00": {
+      "region": "us-west",
+      "size": 355,
+      "incident_offset": -0.5352922198094229,
+      "slopes": {
+        "log_disk_latency": -0.06663634005403074,
+        "cpu_util": -0.3103554412339712,
+        "queue_depth": 0.031092914871293675,
+        "log1p_error_rate": -0.13688899287934628,
+        "mem_pressure": 0.11359622217614092,
+        "cache_hit_ratio": -0.5615597405218236
+      }
+    },
+    "us-west-c01": {
+      "region": "us-west",
+      "size": 284,
+      "incident_offset": 0.7653702075610606,
+      "slopes": {
+        "log_disk_latency": -0.6944671224055463,
+        "cpu_util": 0.3959737533297806,
+        "queue_depth": 0.19029559716061917,
+        "log1p_error_rate": 0.12301848881867468,
+        "mem_pressure": 0.37441438432341184,
+        "cache_hit_ratio": 0.038343867569251074
+      }
+    },
+    "us-west-c02": {
+      "region": "us-west",
+      "size": 8,
+      "incident_offset": 0.7532199802679453,
+      "slopes": {
+        "log_disk_latency": -0.12023973588404956,
+        "cpu_util": -0.38952301554593644,
+        "queue_depth": 0.3716010903819615,
+        "log1p_error_rate": 0.09152137594290083,
+        "mem_pressure": -0.30886741431229353,
+        "cache_hit_ratio": 0.0607188532138062
+      }
+    },
+    "us-west-c03": {
+      "region": "us-west",
+      "size": 263,
+      "incident_offset": -0.5378762845497089,
+      "slopes": {
+        "log_disk_latency": -1.1405376574130115,
+        "cpu_util": 0.20802106824825728,
+        "queue_depth": 0.657956287111215,
+        "log1p_error_rate": 0.11255995895021875,
+        "mem_pressure": -0.3535116381331663,
+        "cache_hit_ratio": 0.46366999614964155
+      }
+    },
+    "us-west-c04": {
+      "region": "us-west",
+      "size": 109,
+      "incident_offset": -0.35899136235639406,
+      "slopes": {
+        "log_disk_latency": 0.42589159886985406,
+        "cpu_util": -0.18645929111141252,
+        "queue_depth": -0.9645461485056757,
+        "log1p_error_rate": -0.25708091739311384,
+        "mem_pressure": -0.27687730645723063,
+        "cache_hit_ratio": -0.4459465807171053
+      }
+    },
+    "us-west-c05": {
+      "region": "us-west",
+      "size": 368,
+      "incident_offset": 0.7359958616078711,
+      "slopes": {
+        "log_disk_latency": -0.18536663391558397,
+        "cpu_util": -0.10174897005769375,
+        "queue_depth": -0.116661490580516,
+        "log1p_error_rate": -0.2779676743922097,
+        "mem_pressure": -0.42435459886025884,
+        "cache_hit_ratio": -0.34257129224887245
+      }
+    },
+    "us-west-c06": {
+      "region": "us-west",
+      "size": 1839,
+      "incident_offset": 0.05718224036738573,
+      "slopes": {
+        "log_disk_latency": -0.6251476527204608,
+        "cpu_util": 0.00044909905003349536,
+        "queue_depth": -0.022391935501396305,
+        "log1p_error_rate": -0.7397654179639073,
+        "mem_pressure": -0.520303510993055,
+        "cache_hit_ratio": -0.22334370505080028
+      }
+    },
+    "us-west-c07": {
+      "region": "us-west",
+      "size": 90,
+      "incident_offset": 0.9501379059887959,
+      "slopes": {
+        "log_disk_latency": -0.05687818622287258,
+        "cpu_util": -0.02611312906517009,
+        "queue_depth": 0.278815217541335,
+        "log1p_error_rate": -0.06436513141227584,
+        "mem_pressure": 0.622942490676488,
+        "cache_hit_ratio": -0.03295321121503504
+      }
+    },
+    "us-west-c08": {
+      "region": "us-west",
+      "size": 79,
+      "incident_offset": -0.27018999590685394,
+      "slopes": {
+        "log_disk_latency": -0.1698799065468701,
+        "cpu_util": -0.5571548917465127,
+        "queue_depth": -0.5111742404649922,
+        "log1p_error_rate": 0.5187678718334362,
+        "mem_pressure": 0.07293177351236818,
+        "cache_hit_ratio": -0.12204627715060172
+      }
+    },
+    "us-west-c09": {
+      "region": "us-west",
+      "size": 49,
+      "incident_offset": -0.2014412981365232,
+      "slopes": {
+        "log_disk_latency": 0.1838988771829972,
+        "cpu_util": -0.3447106083525571,
+        "queue_depth": 0.5157759953880616,
+        "log1p_error_rate": 0.16670687265187015,
+        "mem_pressure": 0.015464487463926754,
+        "cache_hit_ratio": -0.5714614427492404
+      }
+    },
+    "us-west-c10": {
+      "region": "us-west",
+      "size": 166,
+      "incident_offset": 0.14534701147137863,
+      "slopes": {
+        "log_disk_latency": 0.6994762045464952,
+        "cpu_util": -0.010745337669872002,
+        "queue_depth": 0.18406972636256988,
+        "log1p_error_rate": 0.035226630679677705,
+        "mem_pressure": 0.4761341407728395,
+        "cache_hit_ratio": -0.6665070329002367
+      }
+    },
+    "us-west-c11": {
+      "region": "us-west",
+      "size": 26,
+      "incident_offset": -1.7492071471228643,
+      "slopes": {
+        "log_disk_latency": -0.09644595900590072,
+        "cpu_util": 0.34131611752455426,
+        "queue_depth": -0.25596635717907756,
+        "log1p_error_rate": -0.2844787609147505,
+        "mem_pressure": 0.35039077109975514,
+        "cache_hit_ratio": 0.08844905859407952
+      }
+    },
+    "us-west-c12": {
+      "region": "us-west",
+      "size": 13,
+      "incident_offset": -0.020531105993140626,
+      "slopes": {
+        "log_disk_latency": -0.42143978688266165,
+        "cpu_util": -0.06647384906646087,
+        "queue_depth": 1.214168993266992,
+        "log1p_error_rate": -0.10071031504338278,
+        "mem_pressure": 0.17717384172178122,
+        "cache_hit_ratio": -0.3337345675885826
+      }
+    },
+    "us-west-c13": {
+      "region": "us-west",
+      "size": 8,
+      "incident_offset": 0.8786944427992154,
+      "slopes": {
+        "log_disk_latency": -0.3538675329900306,
+        "cpu_util": -0.7756708380994543,
+        "queue_depth": -0.4687379164199609,
+        "log1p_error_rate": -0.020174410624003273,
+        "mem_pressure": 0.2900803660590648,
+        "cache_hit_ratio": 0.06848601452698043
+      }
+    },
+    "us-west-c14": {
+      "region": "us-west",
+      "size": 8,
+      "incident_offset": -0.4328323722800118,
+      "slopes": {
+        "log_disk_latency": -0.12727483664386732,
+        "cpu_util": -0.083641147540089,
+        "queue_depth": -0.4101850962701309,
+        "log1p_error_rate": 0.0657749715963019,
+        "mem_pressure": 0.050753135687176876,
+        "cache_hit_ratio": -0.0006788560520382019
+      }
+    },
+    "us-west-c15": {
+      "region": "us-west",
+      "size": 16,
+      "incident_offset": -4.103411952288905,
+      "slopes": {
+        "log_disk_latency": -0.761045563541323,
+        "cpu_util": 0.21528090702328317,
+        "queue_depth": 0.08192331856437957,
+        "log1p_error_rate": 0.12189894194774503,
+        "mem_pressure": 0.191237316916894,
+        "cache_hit_ratio": 0.13683083269468274
+      }
+    },
+    "us-west-c16": {
+      "region": "us-west",
+      "size": 48,
+      "incident_offset": -2.2862307114130034,
+      "slopes": {
+        "log_disk_latency": 0.24746790112855774,
+        "cpu_util": -0.43070416785816507,
+        "queue_depth": -0.08352569231854043,
+        "log1p_error_rate": -0.7491380778681282,
+        "mem_pressure": 0.10470613076917082,
+        "cache_hit_ratio": -0.14014100433651777
+      }
+    },
+    "us-west-c17": {
+      "region": "us-west",
+      "size": 27,
+      "incident_offset": 1.1700533636482497,
+      "slopes": {
+        "log_disk_latency": 0.17066136399924137,
+        "cpu_util": 0.20541188745036312,
+        "queue_depth": 0.26781861957695763,
+        "log1p_error_rate": 0.537960335799126,
+        "mem_pressure": -0.8174032585110383,
+        "cache_hit_ratio": 0.1009867947631453
+      }
+    },
+    "us-west-c18": {
+      "region": "us-west",
+      "size": 36,
+      "incident_offset": 2.470974202003446,
+      "slopes": {
+        "log_disk_latency": 0.17189636370252867,
+        "cpu_util": -0.28574797656389356,
+        "queue_depth": -0.17611012499327652,
+        "log1p_error_rate": -0.39248864044291826,
+        "mem_pressure": 0.400938217701514,
+        "cache_hit_ratio": 0.21790113750655318
+      }
+    },
+    "us-west-c19": {
+      "region": "us-west",
+      "size": 8,
+      "incident_offset": -0.3445345238338237,
+      "slopes": {
+        "log_disk_latency": 0.03511147200770745,
+        "cpu_util": 0.6935629328155161,
+        "queue_depth": -0.14818881562379058,
+        "log1p_error_rate": 0.4412222645752094,
+        "mem_pressure": 0.4122245120885552,
+        "cache_hit_ratio": 0.4269896805819552
+      }
+    },
+    "us-west-c20": {
+      "region": "us-west",
+      "size": 8,
+      "incident_offset": -0.31212898756402346,
+      "slopes": {
+        "log_disk_latency": -0.08710916600003939,
+        "cpu_util": 0.017084035942037244,
+        "queue_depth": 0.03553648568005519,
+        "log1p_error_rate": -0.41249125551966104,
+        "mem_pressure": 0.14739242970745822,
+        "cache_hit_ratio": 0.15750060256375878
+      }
+    },
+    "us-west-c21": {
+      "region": "us-west",
+      "size": 84,
+      "incident_offset": 0.6588060637676969,
+      "slopes": {
+        "log_disk_latency": 0.5811196827525797,
+        "cpu_util": 0.1725947899600857,
+        "queue_depth": -0.2820336800776924,
+        "log1p_error_rate": -0.3699791537283716,
+        "mem_pressure": -0.010201907387869727,
+        "cache_hit_ratio": -0.48142873439682077
+      }
+    },
+    "us-west-c22": {
+      "region": "us-west",
+      "size": 8,
+      "incident_offset": -0.9132960715918648,
+      "slopes": {
+        "log_disk_latency": 0.5121599545393454,
+        "cpu_util": 0.38069051965126494,
+        "queue_depth": 0.7263155135748756,
+        "log1p_error_rate": -0.2299528535208034,
+        "mem_pressure": 0.2599226438772811,
+        "cache_hit_ratio": -0.39128758539519665
+      }
+    },
+    "eu-west-c00": {
+      "region": "eu-west",
+      "size": 41,
+      "incident_offset": 0.493300842222056,
+      "slopes": {
+        "log_disk_latency": 0.757322764438491,
+        "cpu_util": 0.4541416522708843,
+        "queue_depth": 0.46991013712621343,
+        "log1p_error_rate": -0.05285183082825374,
+        "mem_pressure": -0.38049911014887844,
+        "cache_hit_ratio": -0.5648479512963389
+      }
+    },
+    "eu-west-c01": {
+      "region": "eu-west",
+      "size": 285,
+      "incident_offset": -0.386642835536384,
+      "slopes": {
+        "log_disk_latency": -0.23743025858195727,
+        "cpu_util": 0.1004845153337814,
+        "queue_depth": 0.4241574464800391,
+        "log1p_error_rate": -0.43521400457150977,
+        "mem_pressure": 0.39070755958647785,
+        "cache_hit_ratio": -0.07323802378153145
+      }
+    },
+    "eu-west-c02": {
+      "region": "eu-west",
+      "size": 30,
+      "incident_offset": -0.050326275233828786,
+      "slopes": {
+        "log_disk_latency": -0.19606387055334168,
+        "cpu_util": -0.3296878835074373,
+        "queue_depth": -0.6129332183953604,
+        "log1p_error_rate": 0.055754178318678946,
+        "mem_pressure": -0.6066760367257337,
+        "cache_hit_ratio": 0.48494302123393124
+      }
+    },
+    "eu-west-c03": {
+      "region": "eu-west",
+      "size": 128,
+      "incident_offset": -3.1389097794921987,
+      "slopes": {
+        "log_disk_latency": -0.27918808356874447,
+        "cpu_util": -0.5664092710987739,
+        "queue_depth": -0.1354851635865048,
+        "log1p_error_rate": -0.8320952051491582,
+        "mem_pressure": 0.2793692824424904,
+        "cache_hit_ratio": -0.031072767346047504
+      }
+    },
+    "eu-west-c04": {
+      "region": "eu-west",
+      "size": 16,
+      "incident_offset": -0.3424362321908823,
+      "slopes": {
+        "log_disk_latency": 0.05883027255313888,
+        "cpu_util": -0.10432049587706516,
+        "queue_depth": 0.47433319280227815,
+        "log1p_error_rate": 0.028083137390148383,
+        "mem_pressure": 0.37862943509551533,
+        "cache_hit_ratio": -0.10786616461963479
+      }
+    },
+    "eu-west-c05": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": 0.0592954754287402,
+      "slopes": {
+        "log_disk_latency": -0.352957610077938,
+        "cpu_util": -0.8340406373025222,
+        "queue_depth": 0.5769782045321429,
+        "log1p_error_rate": 0.5345311316543008,
+        "mem_pressure": 0.29910476731312624,
+        "cache_hit_ratio": -0.304982158342693
+      }
+    },
+    "eu-west-c06": {
+      "region": "eu-west",
+      "size": 163,
+      "incident_offset": 0.6886556792976725,
+      "slopes": {
+        "log_disk_latency": 0.3371853641687431,
+        "cpu_util": -0.3872005404161648,
+        "queue_depth": 0.5988978373170082,
+        "log1p_error_rate": 0.22849882462957902,
+        "mem_pressure": -0.0016324634600904046,
+        "cache_hit_ratio": 0.16839831352683504
+      }
+    },
+    "eu-west-c07": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": 2.115816998990724,
+      "slopes": {
+        "log_disk_latency": -0.30843071934630756,
+        "cpu_util": 0.04099662612127434,
+        "queue_depth": 0.2888517777820855,
+        "log1p_error_rate": 0.3994612926210788,
+        "mem_pressure": 0.14909019952988736,
+        "cache_hit_ratio": 0.10209193341144722
+      }
+    },
+    "eu-west-c08": {
+      "region": "eu-west",
+      "size": 777,
+      "incident_offset": -0.24443944064458245,
+      "slopes": {
+        "log_disk_latency": 0.9512236016213449,
+        "cpu_util": 0.08242597771610234,
+        "queue_depth": -0.27228770982085093,
+        "log1p_error_rate": 0.09841760326632566,
+        "mem_pressure": 0.08695974622196984,
+        "cache_hit_ratio": -0.05696347893496578
+      }
+    },
+    "eu-west-c09": {
+      "region": "eu-west",
+      "size": 148,
+      "incident_offset": -0.534617381837899,
+      "slopes": {
+        "log_disk_latency": 0.18031973239004828,
+        "cpu_util": 0.37474560401779683,
+        "queue_depth": 0.16915161427373243,
+        "log1p_error_rate": -0.32513465770131245,
+        "mem_pressure": 0.21757237711808103,
+        "cache_hit_ratio": 0.3751512169498985
+      }
+    },
+    "eu-west-c10": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": -0.23665597173063949,
+      "slopes": {
+        "log_disk_latency": -0.22371320118100324,
+        "cpu_util": -0.11340238324130417,
+        "queue_depth": -0.33254946754130726,
+        "log1p_error_rate": -0.30601298207854194,
+        "mem_pressure": 0.019098354948334773,
+        "cache_hit_ratio": 0.016845754998756724
+      }
+    },
+    "eu-west-c11": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": -0.5500381892056477,
+      "slopes": {
+        "log_disk_latency": -0.8825798641050937,
+        "cpu_util": 0.5024511313134785,
+        "queue_depth": -0.07730925898674358,
+        "log1p_error_rate": -0.3087462460035355,
+        "mem_pressure": -0.3237643920432436,
+        "cache_hit_ratio": 0.19999362026482914
+      }
+    },
+    "eu-west-c12": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": 6.588012029498225,
+      "slopes": {
+        "log_disk_latency": 0.8372618488158331,
+        "cpu_util": -0.07912758636658906,
+        "queue_depth": -0.194366906420935,
+        "log1p_error_rate": -0.32953405784386647,
+        "mem_pressure": -0.00625775336751229,
+        "cache_hit_ratio": 0.19278927961499687
+      }
+    },
+    "eu-west-c13": {
+      "region": "eu-west",
+      "size": 109,
+      "incident_offset": 0.9720369333072436,
+      "slopes": {
+        "log_disk_latency": 0.841764001989799,
+        "cpu_util": -0.13175249024966595,
+        "queue_depth": 0.08167090352278292,
+        "log1p_error_rate": 0.5159322957305735,
+        "mem_pressure": -0.4495096752131142,
+        "cache_hit_ratio": 0.5428732124267865
+      }
+    },
+    "eu-west-c14": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": 0.5707186298411505,
+      "slopes": {
+        "log_disk_latency": -0.1637011241957618,
+        "cpu_util": -0.14065081469330717,
+        "queue_depth": -0.13293364306371,
+        "log1p_error_rate": 0.4601514660653436,
+        "mem_pressure": -0.3691378848941592,
+        "cache_hit_ratio": 0.03976482968022402
+      }
+    },
+    "eu-west-c15": {
+      "region": "eu-west",
+      "size": 128,
+      "incident_offset": -0.4380011603162073,
+      "slopes": {
+        "log_disk_latency": 0.41122934617588375,
+        "cpu_util": -0.1876485853998306,
+        "queue_depth": -0.7189609030004069,
+        "log1p_error_rate": 0.03760088344633566,
+        "mem_pressure": -0.25184945114881524,
+        "cache_hit_ratio": -0.2438149946692683
+      }
+    },
+    "eu-west-c16": {
+      "region": "eu-west",
+      "size": 47,
+      "incident_offset": -0.7025201468010186,
+      "slopes": {
+        "log_disk_latency": 0.03656492026097431,
+        "cpu_util": 0.12458128286707298,
+        "queue_depth": -0.4381532730029972,
+        "log1p_error_rate": 0.8108546014069443,
+        "mem_pressure": 0.7563345623469184,
+        "cache_hit_ratio": 0.44987647968528
+      }
+    },
+    "eu-west-c17": {
+      "region": "eu-west",
+      "size": 39,
+      "incident_offset": 3.311754392690898,
+      "slopes": {
+        "log_disk_latency": -0.45567747499538325,
+        "cpu_util": -0.2182266346867886,
+        "queue_depth": 0.22463622896189156,
+        "log1p_error_rate": -0.021210340867104587,
+        "mem_pressure": -0.3666959088171125,
+        "cache_hit_ratio": 0.298599961035457
+      }
+    },
+    "eu-west-c18": {
+      "region": "eu-west",
+      "size": 16,
+      "incident_offset": -0.2551503661223628,
+      "slopes": {
+        "log_disk_latency": 1.1416493364020674,
+        "cpu_util": -0.04093522058058044,
+        "queue_depth": 0.0692094619397063,
+        "log1p_error_rate": -0.24941965587052006,
+        "mem_pressure": -0.6294916894470824,
+        "cache_hit_ratio": -0.15052155863734676
+      }
+    },
+    "eu-west-c19": {
+      "region": "eu-west",
+      "size": 825,
+      "incident_offset": -0.3759307832065606,
+      "slopes": {
+        "log_disk_latency": -0.46934317467024683,
+        "cpu_util": -0.2672020698208684,
+        "queue_depth": -0.35419160474233236,
+        "log1p_error_rate": 0.061101802362895585,
+        "mem_pressure": 0.56909581428236,
+        "cache_hit_ratio": -0.07059793423665842
+      }
+    },
+    "eu-west-c20": {
+      "region": "eu-west",
+      "size": 144,
+      "incident_offset": 0.07771861958134628,
+      "slopes": {
+        "log_disk_latency": 0.11998415812671236,
+        "cpu_util": 0.18158873840537237,
+        "queue_depth": 0.0941995645982657,
+        "log1p_error_rate": 0.4633219263818318,
+        "mem_pressure": 0.4058252791663664,
+        "cache_hit_ratio": -0.057538447888567094
+      }
+    },
+    "eu-west-c21": {
+      "region": "eu-west",
+      "size": 152,
+      "incident_offset": 5.347667804121886,
+      "slopes": {
+        "log_disk_latency": 0.09638647943190545,
+        "cpu_util": -0.5580805078622435,
+        "queue_depth": -0.3088540870368421,
+        "log1p_error_rate": -0.14805620467368416,
+        "mem_pressure": -0.19943900880876356,
+        "cache_hit_ratio": 0.015028703376217967
+      }
+    },
+    "eu-west-c22": {
+      "region": "eu-west",
+      "size": 334,
+      "incident_offset": 0.4267267748343411,
+      "slopes": {
+        "log_disk_latency": -1.8349757290426367,
+        "cpu_util": 0.20338355742716896,
+        "queue_depth": -0.12690982645514648,
+        "log1p_error_rate": 0.2273117507736352,
+        "mem_pressure": 0.10238109768322796,
+        "cache_hit_ratio": -0.015538401197534038
+      }
+    },
+    "eu-west-c23": {
+      "region": "eu-west",
+      "size": 273,
+      "incident_offset": -0.55163287934219,
+      "slopes": {
+        "log_disk_latency": -0.46826629462344094,
+        "cpu_util": -0.5657513022095233,
+        "queue_depth": -0.15224872298762826,
+        "log1p_error_rate": 0.3155051017095237,
+        "mem_pressure": -0.0949541808652942,
+        "cache_hit_ratio": -0.36397389977365585
+      }
+    },
+    "eu-west-c24": {
+      "region": "eu-west",
+      "size": 8,
+      "incident_offset": 2.1442941721311533,
+      "slopes": {
+        "log_disk_latency": -0.9483976007523331,
+        "cpu_util": -0.16829945192135537,
+        "queue_depth": 0.45453777153151875,
+        "log1p_error_rate": -0.16059726137766916,
+        "mem_pressure": 0.10456730783284227,
+        "cache_hit_ratio": 0.5756007292850585
+      }
+    },
+    "eu-west-c25": {
+      "region": "eu-west",
+      "size": 778,
+      "incident_offset": -0.48868814740272665,
+      "slopes": {
+        "log_disk_latency": -0.58029205734387,
+        "cpu_util": 0.3357907383367118,
+        "queue_depth": 0.18664194939270454,
+        "log1p_error_rate": 0.27708781392656917,
+        "mem_pressure": 0.07340776740601283,
+        "cache_hit_ratio": -0.24190953016374994
+      }
+    },
+    "eu-west-c26": {
+      "region": "eu-west",
+      "size": 11,
+      "incident_offset": -0.03403826305498987,
+      "slopes": {
+        "log_disk_latency": 0.3774512411442184,
+        "cpu_util": -0.2851311356731063,
+        "queue_depth": -0.15734343751506544,
+        "log1p_error_rate": 0.26992630265265166,
+        "mem_pressure": 0.20863848290589182,
+        "cache_hit_ratio": 0.12724530541385476
+      }
+    },
+    "eu-central-c00": {
+      "region": "eu-central",
+      "size": 84,
+      "incident_offset": 1.1105807923175544,
+      "slopes": {
+        "log_disk_latency": 1.162537055495477,
+        "cpu_util": -0.3544102671328089,
+        "queue_depth": 0.12381894007565586,
+        "log1p_error_rate": -0.04430599316163047,
+        "mem_pressure": 0.16864837428368434,
+        "cache_hit_ratio": 0.25644409390691847
+      }
+    },
+    "eu-central-c01": {
+      "region": "eu-central",
+      "size": 469,
+      "incident_offset": 0.3668620068413005,
+      "slopes": {
+        "log_disk_latency": 0.6970285410034363,
+        "cpu_util": 0.6548944700872082,
+        "queue_depth": 0.20621528237488534,
+        "log1p_error_rate": -0.180760693364201,
+        "mem_pressure": 0.02634390924076819,
+        "cache_hit_ratio": 0.008691471707545107
+      }
+    },
+    "eu-central-c02": {
+      "region": "eu-central",
+      "size": 8,
+      "incident_offset": -0.2059157740269806,
+      "slopes": {
+        "log_disk_latency": -0.48653696241136435,
+        "cpu_util": 0.2162275820627758,
+        "queue_depth": 0.3003618753519789,
+        "log1p_error_rate": -0.37449637210412046,
+        "mem_pressure": -0.4674997155849738,
+        "cache_hit_ratio": 0.42329229703670684
+      }
+    },
+    "eu-central-c03": {
+      "region": "eu-central",
+      "size": 79,
+      "incident_offset": 0.12947648741328432,
+      "slopes": {
+        "log_disk_latency": -0.2494540725162895,
+        "cpu_util": -0.05503382574434789,
+        "queue_depth": -0.294381806469238,
+        "log1p_error_rate": -0.14140518963287685,
+        "mem_pressure": 0.0685446365791159,
+        "cache_hit_ratio": -0.39042159065206294
+      }
+    },
+    "eu-central-c04": {
+      "region": "eu-central",
+      "size": 9,
+      "incident_offset": 0.06611220935546722,
+      "slopes": {
+        "log_disk_latency": 1.6803391141714301,
+        "cpu_util": -0.08165879564612265,
+        "queue_depth": 0.43797850278312755,
+        "log1p_error_rate": 0.32690489467128026,
+        "mem_pressure": -0.19754203178214655,
+        "cache_hit_ratio": -0.309317800832743
+      }
+    },
+    "eu-central-c05": {
+      "region": "eu-central",
+      "size": 511,
+      "incident_offset": -0.5551445470741775,
+      "slopes": {
+        "log_disk_latency": -0.35877765044631543,
+        "cpu_util": -0.6282056913833813,
+        "queue_depth": -0.20676791522224922,
+        "log1p_error_rate": -0.40000166841125356,
+        "mem_pressure": -0.20168367910211277,
+        "cache_hit_ratio": 0.3758745542484937
+      }
+    },
+    "eu-central-c06": {
+      "region": "eu-central",
+      "size": 8,
+      "incident_offset": -0.07756703301559682,
+      "slopes": {
+        "log_disk_latency": 1.2189962910319394,
+        "cpu_util": 0.628103233157019,
+        "queue_depth": -0.4135673634861393,
+        "log1p_error_rate": -0.1397743201076969,
+        "mem_pressure": 0.34595988538332606,
+        "cache_hit_ratio": 0.45924376749408186
+      }
+    },
+    "eu-central-c07": {
+      "region": "eu-central",
+      "size": 234,
+      "incident_offset": 0.17776049065479238,
+      "slopes": {
+        "log_disk_latency": 0.29800320659861457,
+        "cpu_util": 0.5316247225753774,
+        "queue_depth": 0.06473857355737986,
+        "log1p_error_rate": 0.472848360291034,
+        "mem_pressure": 0.14721891109263138,
+        "cache_hit_ratio": 0.5889742419435657
+      }
+    },
+    "eu-central-c08": {
+      "region": "eu-central",
+      "size": 298,
+      "incident_offset": 0.4187086255289271,
+      "slopes": {
+        "log_disk_latency": 0.1392557135371871,
+        "cpu_util": -1.1223024782085331,
+        "queue_depth": -0.35484627606677416,
+        "log1p_error_rate": 0.4556046833186246,
+        "mem_pressure": 0.02542799846127697,
+        "cache_hit_ratio": 0.5162576592303516
+      }
+    },
+    "eu-central-c09": {
+      "region": "eu-central",
+      "size": 8,
+      "incident_offset": -0.8816764248824467,
+      "slopes": {
+        "log_disk_latency": -0.32638278166906876,
+        "cpu_util": 0.10785985744355286,
+        "queue_depth": 0.41644954301952986,
+        "log1p_error_rate": 0.3474122424729116,
+        "mem_pressure": -0.026154627087042,
+        "cache_hit_ratio": -0.43968361339239137
+      }
+    },
+    "eu-central-c10": {
+      "region": "eu-central",
+      "size": 576,
+      "incident_offset": -0.31111983292757167,
+      "slopes": {
+        "log_disk_latency": 0.7161430604966513,
+        "cpu_util": 0.1308765404059386,
+        "queue_depth": 0.4926927897594326,
+        "log1p_error_rate": -0.02514893736832736,
+        "mem_pressure": 0.2806618255363981,
+        "cache_hit_ratio": 0.5038865874536352
+      }
+    },
+    "eu-central-c11": {
+      "region": "eu-central",
+      "size": 94,
+      "incident_offset": 0.3604000739663562,
+      "slopes": {
+        "log_disk_latency": 1.3763729763221535,
+        "cpu_util": 0.3512911926252025,
+        "queue_depth": 0.09570949708382835,
+        "log1p_error_rate": 0.8420833075845799,
+        "mem_pressure": 0.06454734474704163,
+        "cache_hit_ratio": -0.10773668938542501
+      }
+    },
+    "eu-central-c12": {
+      "region": "eu-central",
+      "size": 504,
+      "incident_offset": 0.4882972067083256,
+      "slopes": {
+        "log_disk_latency": -0.6180814635011198,
+        "cpu_util": 0.29650707446412033,
+        "queue_depth": 0.022950868151247073,
+        "log1p_error_rate": 0.034137869971149266,
+        "mem_pressure": -0.3837579158217396,
+        "cache_hit_ratio": 0.1726306154443095
+      }
+    },
+    "eu-central-c13": {
+      "region": "eu-central",
+      "size": 45,
+      "incident_offset": -2.374558901091704,
+      "slopes": {
+        "log_disk_latency": -0.29271704433277884,
+        "cpu_util": 0.11570723608816356,
+        "queue_depth": -0.19118645009371302,
+        "log1p_error_rate": -0.29186155931743524,
+        "mem_pressure": -0.20175452028581672,
+        "cache_hit_ratio": -0.20456073028525396
+      }
+    },
+    "eu-central-c14": {
+      "region": "eu-central",
+      "size": 48,
+      "incident_offset": 0.2752277743943547,
+      "slopes": {
+        "log_disk_latency": 1.4754763743177084,
+        "cpu_util": 0.10303328470197087,
+        "queue_depth": 0.036919275242105185,
+        "log1p_error_rate": -0.24677526704972677,
+        "mem_pressure": 0.2246450514340693,
+        "cache_hit_ratio": 0.0709771519440798
+      }
+    },
+    "eu-central-c15": {
+      "region": "eu-central",
+      "size": 8,
+      "incident_offset": 0.33994061159942857,
+      "slopes": {
+        "log_disk_latency": 0.10317516005266743,
+        "cpu_util": -0.3842093228408493,
+        "queue_depth": 0.4409410411592147,
+        "log1p_error_rate": 0.085590429343286,
+        "mem_pressure": -0.4769599784138618,
+        "cache_hit_ratio": 0.6221046934811779
+      }
+    },
+    "eu-central-c16": {
+      "region": "eu-central",
+      "size": 8,
+      "incident_offset": -0.17992581494904353,
+      "slopes": {
+        "log_disk_latency": -0.31459009560114864,
+        "cpu_util": 0.2700513395816972,
+        "queue_depth": -0.2902531965352923,
+        "log1p_error_rate": 0.18986701022638766,
+        "mem_pressure": -0.012063787347025248,
+        "cache_hit_ratio": -0.1427845200496694
+      }
+    },
+    "eu-central-c17": {
+      "region": "eu-central",
+      "size": 9,
+      "incident_offset": -2.7217698906692984,
+      "slopes": {
+        "log_disk_latency": -0.6028945072788446,
+        "cpu_util": -0.3727293674244765,
+        "queue_depth": -0.5387849421684224,
+        "log1p_error_rate": 0.097297964952774,
+        "mem_pressure": -0.2525343007216666,
+        "cache_hit_ratio": -0.07927271506943445
+      }
+    },
+    "ap-south-c00": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": 0.36239836118055263,
+      "slopes": {
+        "log_disk_latency": 1.3016080500623537,
+        "cpu_util": -0.424542791887159,
+        "queue_depth": -0.2590862744181169,
+        "log1p_error_rate": -0.15479233777117374,
+        "mem_pressure": 0.42091104633606174,
+        "cache_hit_ratio": 0.03178584188822009
+      }
+    },
+    "ap-south-c01": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": 0.15596308562972205,
+      "slopes": {
+        "log_disk_latency": -0.39311062761853066,
+        "cpu_util": -0.475611898043631,
+        "queue_depth": -0.08271318327813859,
+        "log1p_error_rate": -0.05971436554918214,
+        "mem_pressure": 0.2074125663876845,
+        "cache_hit_ratio": 0.2968596724091082
+      }
+    },
+    "ap-south-c02": {
+      "region": "ap-south",
+      "size": 48,
+      "incident_offset": 1.484667947314693,
+      "slopes": {
+        "log_disk_latency": -0.40772822097825046,
+        "cpu_util": -0.14457767121012527,
+        "queue_depth": -0.1510475139869033,
+        "log1p_error_rate": 0.4371332421272144,
+        "mem_pressure": 0.011461376268467946,
+        "cache_hit_ratio": 0.2827204738351925
+      }
+    },
+    "ap-south-c03": {
+      "region": "ap-south",
+      "size": 94,
+      "incident_offset": 0.3836684248256546,
+      "slopes": {
+        "log_disk_latency": 0.35329888525153597,
+        "cpu_util": 0.33957009503628205,
+        "queue_depth": 0.751276420300122,
+        "log1p_error_rate": -0.523432542028071,
+        "mem_pressure": 0.09923680508358881,
+        "cache_hit_ratio": -0.4887095226582886
+      }
+    },
+    "ap-south-c04": {
+      "region": "ap-south",
+      "size": 86,
+      "incident_offset": 4.676374528946985,
+      "slopes": {
+        "log_disk_latency": -0.07764517804427024,
+        "cpu_util": -0.04470439559232149,
+        "queue_depth": -0.2179193906151423,
+        "log1p_error_rate": 0.27476315979965743,
+        "mem_pressure": -0.007010029866027546,
+        "cache_hit_ratio": -0.4504968206313751
+      }
+    },
+    "ap-south-c05": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": -0.26363448091950403,
+      "slopes": {
+        "log_disk_latency": 0.023831175327705224,
+        "cpu_util": 0.38124497334585444,
+        "queue_depth": 0.24047921285133184,
+        "log1p_error_rate": 0.6214872377845968,
+        "mem_pressure": -0.15237374836536818,
+        "cache_hit_ratio": -0.23882160320589854
+      }
+    },
+    "ap-south-c06": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": -0.7373059252421325,
+      "slopes": {
+        "log_disk_latency": -0.16238866523230194,
+        "cpu_util": 0.5337018297572411,
+        "queue_depth": -0.023640692866722567,
+        "log1p_error_rate": -0.10365466411454326,
+        "mem_pressure": 0.07065270669800187,
+        "cache_hit_ratio": -0.12853337263151965
+      }
+    },
+    "ap-south-c07": {
+      "region": "ap-south",
+      "size": 111,
+      "incident_offset": 0.3063531781117127,
+      "slopes": {
+        "log_disk_latency": 0.08893132061987938,
+        "cpu_util": 0.19244493407647512,
+        "queue_depth": -0.45501850915115094,
+        "log1p_error_rate": 0.04526464570758453,
+        "mem_pressure": -0.11523235739150933,
+        "cache_hit_ratio": 0.08402847125299087
+      }
+    },
+    "ap-south-c08": {
+      "region": "ap-south",
+      "size": 975,
+      "incident_offset": 0.0889633655705592,
+      "slopes": {
+        "log_disk_latency": -0.20357371538766425,
+        "cpu_util": 0.3559595344130335,
+        "queue_depth": -0.04848860755880406,
+        "log1p_error_rate": -0.10568576134629076,
+        "mem_pressure": 0.6792025116934071,
+        "cache_hit_ratio": 0.3404009248281464
+      }
+    },
+    "ap-south-c09": {
+      "region": "ap-south",
+      "size": 134,
+      "incident_offset": -0.2735112111710785,
+      "slopes": {
+        "log_disk_latency": -0.42033398797848326,
+        "cpu_util": -0.8458512706535146,
+        "queue_depth": 0.22564654957897462,
+        "log1p_error_rate": 0.03656621306741717,
+        "mem_pressure": 0.22963077971337992,
+        "cache_hit_ratio": 0.43690492383765217
+      }
+    },
+    "ap-south-c10": {
+      "region": "ap-south",
+      "size": 594,
+      "incident_offset": -0.22155548242692927,
+      "slopes": {
+        "log_disk_latency": 0.0046389823416766365,
+        "cpu_util": -0.46024790785698705,
+        "queue_depth": 0.40432860921592545,
+        "log1p_error_rate": -0.07262855158695469,
+        "mem_pressure": 0.19259832284562456,
+        "cache_hit_ratio": 0.06312850369481753
+      }
+    },
+    "ap-south-c11": {
+      "region": "ap-south",
+      "size": 26,
+      "incident_offset": 0.14213825962239754,
+      "slopes": {
+        "log_disk_latency": -0.2938005149488855,
+        "cpu_util": -0.020888785596754143,
+        "queue_depth": 0.2552576604997086,
+        "log1p_error_rate": 0.1559368407041397,
+        "mem_pressure": -0.703033413199111,
+        "cache_hit_ratio": -0.22175962774233596
+      }
+    },
+    "ap-south-c12": {
+      "region": "ap-south",
+      "size": 525,
+      "incident_offset": -0.06096985881682155,
+      "slopes": {
+        "log_disk_latency": 0.8544077880199579,
+        "cpu_util": 0.582762977694493,
+        "queue_depth": 0.3742296480170956,
+        "log1p_error_rate": -0.42699107993009233,
+        "mem_pressure": 0.7188936464091805,
+        "cache_hit_ratio": 0.14086569604854313
+      }
+    },
+    "ap-south-c13": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": -1.8596159203556593,
+      "slopes": {
+        "log_disk_latency": -0.15791961218731276,
+        "cpu_util": 0.37308217001179655,
+        "queue_depth": 0.5320908208794999,
+        "log1p_error_rate": 0.07391960932808868,
+        "mem_pressure": 0.05370466478302004,
+        "cache_hit_ratio": -0.11950326745284334
+      }
+    },
+    "ap-south-c14": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": -0.2294948416652958,
+      "slopes": {
+        "log_disk_latency": -0.11801166410332188,
+        "cpu_util": 0.04629410424293455,
+        "queue_depth": -0.17859240475616836,
+        "log1p_error_rate": 0.6045258913011565,
+        "mem_pressure": -0.02061995854677936,
+        "cache_hit_ratio": 0.48169418370614936
+      }
+    },
+    "ap-south-c15": {
+      "region": "ap-south",
+      "size": 464,
+      "incident_offset": 0.6075325331412617,
+      "slopes": {
+        "log_disk_latency": 0.19280244233148236,
+        "cpu_util": -1.0223237019593734,
+        "queue_depth": -0.0384866631540257,
+        "log1p_error_rate": -0.3033345929845298,
+        "mem_pressure": -0.029101678116678558,
+        "cache_hit_ratio": -0.0064634941760792295
+      }
+    },
+    "ap-south-c16": {
+      "region": "ap-south",
+      "size": 49,
+      "incident_offset": -0.10429595949439752,
+      "slopes": {
+        "log_disk_latency": -0.004268613161153557,
+        "cpu_util": 0.39742081403039325,
+        "queue_depth": 0.2145939833871608,
+        "log1p_error_rate": -0.002395735580660903,
+        "mem_pressure": 0.2876371066577289,
+        "cache_hit_ratio": -0.16194713805306962
+      }
+    },
+    "ap-south-c17": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": 3.2616402839909324,
+      "slopes": {
+        "log_disk_latency": -0.6607106226689997,
+        "cpu_util": -0.12423513506400258,
+        "queue_depth": -0.2952319820963994,
+        "log1p_error_rate": 0.1993120132027282,
+        "mem_pressure": -0.14525007765199402,
+        "cache_hit_ratio": 0.3825279096763323
+      }
+    },
+    "ap-south-c18": {
+      "region": "ap-south",
+      "size": 8,
+      "incident_offset": 0.6705987206080646,
+      "slopes": {
+        "log_disk_latency": -0.2954385261312427,
+        "cpu_util": 0.6554638128434664,
+        "queue_depth": 0.3142110883394428,
+        "log1p_error_rate": -0.14157005356870503,
+        "mem_pressure": -0.19916401366158296,
+        "cache_hit_ratio": 0.13682195951483492
+      }
+    },
+    "ap-south-c19": {
+      "region": "ap-south",
+      "size": 102,
+      "incident_offset": -0.5838396758987023,
+      "slopes": {
+        "log_disk_latency": -0.3742541155133868,
+        "cpu_util": 0.1207645699760112,
+        "queue_depth": 0.5433120693110621,
+        "log1p_error_rate": -0.21306351587664274,
+        "mem_pressure": 0.06042209791332499,
+        "cache_hit_ratio": -0.4263691841700024
+      }
+    },
+    "ap-south-c20": {
+      "region": "ap-south",
+      "size": 50,
+      "incident_offset": 0.10167101073633104,
+      "slopes": {
+        "log_disk_latency": 0.3655673444758469,
+        "cpu_util": -0.23845358801422833,
+        "queue_depth": -0.0024625947676137055,
+        "log1p_error_rate": 0.047529761776072245,
+        "mem_pressure": -0.12376333735774103,
+        "cache_hit_ratio": -0.49521394073215447
+      }
+    },
+    "ap-south-c21": {
+      "region": "ap-south",
+      "size": 278,
+      "incident_offset": -0.8020766201498746,
+      "slopes": {
+        "log_disk_latency": 0.03529274279874329,
+        "cpu_util": -0.13906452258649823,
+        "queue_depth": -0.3194170483871672,
+        "log1p_error_rate": -0.22898046587738585,
+        "mem_pressure": -0.3947664600804606,
+        "cache_hit_ratio": -0.04234743238176467
+      }
+    },
+    "ap-northeast-c00": {
+      "region": "ap-northeast",
+      "size": 66,
+      "incident_offset": 1.4790896801929152,
+      "slopes": {
+        "log_disk_latency": -0.8014013156089983,
+        "cpu_util": -0.32829246258426364,
+        "queue_depth": -0.12723283245236872,
+        "log1p_error_rate": -0.15935984643943327,
+        "mem_pressure": 0.1944414240941376,
+        "cache_hit_ratio": -0.019825891632765904
+      }
+    },
+    "ap-northeast-c01": {
+      "region": "ap-northeast",
+      "size": 119,
+      "incident_offset": 0.6346947358238408,
+      "slopes": {
+        "log_disk_latency": -0.14973666302778774,
+        "cpu_util": -0.3209536325999196,
+        "queue_depth": -0.3860399267004933,
+        "log1p_error_rate": -0.08223148312521836,
+        "mem_pressure": -0.6346542687564622,
+        "cache_hit_ratio": -0.27054348242248444
+      }
+    },
+    "ap-northeast-c02": {
+      "region": "ap-northeast",
+      "size": 280,
+      "incident_offset": 0.811061591263111,
+      "slopes": {
+        "log_disk_latency": -0.4692009223306281,
+        "cpu_util": -0.7304843282742716,
+        "queue_depth": -0.6024735351255607,
+        "log1p_error_rate": -0.24964872724131656,
+        "mem_pressure": 0.3578702028438086,
+        "cache_hit_ratio": -0.12263391630497575
+      }
+    },
+    "ap-northeast-c03": {
+      "region": "ap-northeast",
+      "size": 38,
+      "incident_offset": -0.28247813301537433,
+      "slopes": {
+        "log_disk_latency": 0.5159533483457005,
+        "cpu_util": -0.4205667744717454,
+        "queue_depth": -0.011631460762484102,
+        "log1p_error_rate": -0.027521588255420833,
+        "mem_pressure": -0.40530368627567637,
+        "cache_hit_ratio": -0.551569367748498
+      }
+    },
+    "ap-northeast-c04": {
+      "region": "ap-northeast",
+      "size": 154,
+      "incident_offset": -0.5626800665824715,
+      "slopes": {
+        "log_disk_latency": 1.1052812181866745,
+        "cpu_util": -0.26206903571501095,
+        "queue_depth": -0.5485145241315922,
+        "log1p_error_rate": -0.005509732695474959,
+        "mem_pressure": -0.03759311268233834,
+        "cache_hit_ratio": 0.3867890525767256
+      }
+    },
+    "ap-northeast-c05": {
+      "region": "ap-northeast",
+      "size": 8,
+      "incident_offset": -5.999469947404415,
+      "slopes": {
+        "log_disk_latency": -0.11657845890309698,
+        "cpu_util": 0.3511137037405001,
+        "queue_depth": 0.36286346689408217,
+        "log1p_error_rate": 0.24045922355224839,
+        "mem_pressure": 0.1772669226876965,
+        "cache_hit_ratio": -0.6315617718329358
+      }
+    },
+    "ap-northeast-c06": {
+      "region": "ap-northeast",
+      "size": 12,
+      "incident_offset": 1.1619191571310892,
+      "slopes": {
+        "log_disk_latency": 0.004963897025393447,
+        "cpu_util": 0.4971128790959262,
+        "queue_depth": -0.8231052600460834,
+        "log1p_error_rate": 0.10554619402836402,
+        "mem_pressure": 0.11969753030567151,
+        "cache_hit_ratio": -0.1992294052685886
+      }
+    },
+    "ap-northeast-c07": {
+      "region": "ap-northeast",
+      "size": 30,
+      "incident_offset": 0.8916467453580812,
+      "slopes": {
+        "log_disk_latency": 0.18239974380720728,
+        "cpu_util": 0.009061603198619476,
+        "queue_depth": -0.5702061074934041,
+        "log1p_error_rate": 0.1890625302793139,
+        "mem_pressure": 0.07742737974863562,
+        "cache_hit_ratio": -0.04175306100825239
+      }
+    },
+    "ap-northeast-c08": {
+      "region": "ap-northeast",
+      "size": 41,
+      "incident_offset": 0.08157939612923439,
+      "slopes": {
+        "log_disk_latency": 0.554018177436841,
+        "cpu_util": -0.2102470665207622,
+        "queue_depth": 0.8440950157799751,
+        "log1p_error_rate": 0.5597977692271943,
+        "mem_pressure": 0.6040919358438576,
+        "cache_hit_ratio": 0.9236558894564527
+      }
+    },
+    "ap-northeast-c09": {
+      "region": "ap-northeast",
+      "size": 193,
+      "incident_offset": -0.10739268432981186,
+      "slopes": {
+        "log_disk_latency": 0.6451536292103917,
+        "cpu_util": 0.010047330393951922,
+        "queue_depth": 0.8169348110483862,
+        "log1p_error_rate": 0.09028656720175585,
+        "mem_pressure": -0.18375727381586557,
+        "cache_hit_ratio": 0.23546345064013469
+      }
+    },
+    "ap-northeast-c10": {
+      "region": "ap-northeast",
+      "size": 685,
+      "incident_offset": -0.36966431353964413,
+      "slopes": {
+        "log_disk_latency": -0.08951807520503818,
+        "cpu_util": -0.3354069424239809,
+        "queue_depth": -0.3892719602628857,
+        "log1p_error_rate": -0.35444322847761633,
+        "mem_pressure": -0.17248621419632917,
+        "cache_hit_ratio": 0.14593839451945273
+      }
+    },
+    "ap-northeast-c11": {
+      "region": "ap-northeast",
+      "size": 8,
+      "incident_offset": 6.341628671147168,
+      "slopes": {
+        "log_disk_latency": 0.7211177492292062,
+        "cpu_util": 0.18365413244786163,
+        "queue_depth": -0.2864426779892477,
+        "log1p_error_rate": 0.347593679481765,
+        "mem_pressure": -0.29218749792618653,
+        "cache_hit_ratio": -0.19747543548001179
+      }
+    },
+    "ap-northeast-c12": {
+      "region": "ap-northeast",
+      "size": 981,
+      "incident_offset": 0.7182995481275741,
+      "slopes": {
+        "log_disk_latency": -0.1326384334001486,
+        "cpu_util": -0.5867399823377678,
+        "queue_depth": 0.015317205508992363,
+        "log1p_error_rate": 0.8288378206069777,
+        "mem_pressure": -0.43548784688026587,
+        "cache_hit_ratio": -0.08089228756034049
+      }
+    },
+    "ap-northeast-c13": {
+      "region": "ap-northeast",
+      "size": 14,
+      "incident_offset": -0.36268911451061586,
+      "slopes": {
+        "log_disk_latency": 0.9192602521652948,
+        "cpu_util": 0.6540676201695645,
+        "queue_depth": 0.19065235195523594,
+        "log1p_error_rate": 0.2923750524933946,
+        "mem_pressure": 0.06359157001068967,
+        "cache_hit_ratio": -0.16818169502316663
+      }
+    },
+    "ap-northeast-c14": {
+      "region": "ap-northeast",
+      "size": 8,
+      "incident_offset": -0.2674021832384204,
+      "slopes": {
+        "log_disk_latency": -0.9089468872876921,
+        "cpu_util": -0.08709366986836486,
+        "queue_depth": -0.21020925777551236,
+        "log1p_error_rate": -0.23107617486363058,
+        "mem_pressure": -0.3961818880822738,
+        "cache_hit_ratio": 0.36304380997137925
+      }
+    },
+    "ap-northeast-c15": {
+      "region": "ap-northeast",
+      "size": 63,
+      "incident_offset": -0.352911918376275,
+      "slopes": {
+        "log_disk_latency": -0.00011529925998355543,
+        "cpu_util": 0.5672598156141876,
+        "queue_depth": -0.3266540317496231,
+        "log1p_error_rate": 0.07156611416848001,
+        "mem_pressure": -0.17749387922890666,
+        "cache_hit_ratio": 0.12915417234653725
+      }
+    },
+    "sa-east-c00": {
+      "region": "sa-east",
+      "size": 717,
+      "incident_offset": 0.6288631943425321,
+      "slopes": {
+        "log_disk_latency": 0.41249049246943076,
+        "cpu_util": 0.5313021924912816,
+        "queue_depth": -0.13728095924915307,
+        "log1p_error_rate": 0.051686224440287976,
+        "mem_pressure": -0.1317679598056345,
+        "cache_hit_ratio": 0.41211703802115446
+      }
+    },
+    "sa-east-c01": {
+      "region": "sa-east",
+      "size": 36,
+      "incident_offset": -0.5273571134286591,
+      "slopes": {
+        "log_disk_latency": 0.23971259314193552,
+        "cpu_util": 0.0999822910956853,
+        "queue_depth": 0.15111494327555797,
+        "log1p_error_rate": -0.03400123857622147,
+        "mem_pressure": 0.0750194638044177,
+        "cache_hit_ratio": 0.03042764833067542
+      }
+    },
+    "sa-east-c02": {
+      "region": "sa-east",
+      "size": 8,
+      "incident_offset": -0.83298457549892,
+      "slopes": {
+        "log_disk_latency": 0.29888507085928223,
+        "cpu_util": 0.06356825784431301,
+        "queue_depth": -0.1171727967697743,
+        "log1p_error_rate": -0.4422487220972649,
+        "mem_pressure": 0.3325655715154559,
+        "cache_hit_ratio": 0.04561582618018392
+      }
+    },
+    "sa-east-c03": {
+      "region": "sa-east",
+      "size": 121,
+      "incident_offset": -0.7008834097499749,
+      "slopes": {
+        "log_disk_latency": -0.07907913602608174,
+        "cpu_util": 0.36647695768813726,
+        "queue_depth": 0.056529901585426284,
+        "log1p_error_rate": -0.6613888183290371,
+        "mem_pressure": -0.06536899372601643,
+        "cache_hit_ratio": 0.14200585635433358
+      }
+    },
+    "sa-east-c04": {
+      "region": "sa-east",
+      "size": 56,
+      "incident_offset": 0.13234651914413512,
+      "slopes": {
+        "log_disk_latency": 0.28287875840030063,
+        "cpu_util": -0.761277476189191,
+        "queue_depth": 0.058082763826508815,
+        "log1p_error_rate": 0.7615644472410412,
+        "mem_pressure": -0.1444182663704123,
+        "cache_hit_ratio": 0.27083513949650084
+      }
+    },
+    "sa-east-c05": {
+      "region": "sa-east",
+      "size": 60,
+      "incident_offset": 2.0629307062312097,
+      "slopes": {
+        "log_disk_latency": 0.11874645840391677,
+        "cpu_util": -0.35020906618460734,
+        "queue_depth": -0.13498376129955722,
+        "log1p_error_rate": -0.24904101975351023,
+        "mem_pressure": 0.5632369664863766,
+        "cache_hit_ratio": 0.1479486216265415
+      }
+    },
+    "sa-east-c06": {
+      "region": "sa-east",
+      "size": 63,
+      "incident_offset": -0.3712246184579563,
+      "slopes": {
+        "log_disk_latency": -0.2706347976661968,
+        "cpu_util": 0.1510693744763934,
+        "queue_depth": -0.620428112851538,
+        "log1p_error_rate": 0.4104077522780794,
+        "mem_pressure": -0.2554747515039414,
+        "cache_hit_ratio": -0.30276306256982743
+      }
+    },
+    "sa-east-c07": {
+      "region": "sa-east",
+      "size": 581,
+      "incident_offset": -0.14905383039629497,
+      "slopes": {
+        "log_disk_latency": 0.3185688158286996,
+        "cpu_util": 0.3350066912738644,
+        "queue_depth": -0.32315836360011263,
+        "log1p_error_rate": 0.5280696255652829,
+        "mem_pressure": 0.3511173617449144,
+        "cache_hit_ratio": 0.10607072627386677
+      }
+    },
+    "sa-east-c08": {
+      "region": "sa-east",
+      "size": 8,
+      "incident_offset": 0.9842074278433401,
+      "slopes": {
+        "log_disk_latency": 0.07915549352515874,
+        "cpu_util": 0.08744539905809989,
+        "queue_depth": 0.2788140214930239,
+        "log1p_error_rate": -0.23486723873526477,
+        "mem_pressure": 0.6751739741888441,
+        "cache_hit_ratio": -0.6726538186852964
+      }
+    },
+    "sa-east-c09": {
+      "region": "sa-east",
+      "size": 13,
+      "incident_offset": -2.8249192226075666,
+      "slopes": {
+        "log_disk_latency": 0.3922000404377007,
+        "cpu_util": 0.02034939368351338,
+        "queue_depth": -0.08315186275960829,
+        "log1p_error_rate": 0.14300930154885977,
+        "mem_pressure": 0.3985265092806309,
+        "cache_hit_ratio": 0.014619382164970043
+      }
+    },
+    "sa-east-c10": {
+      "region": "sa-east",
+      "size": 24,
+      "incident_offset": 0.582876239712687,
+      "slopes": {
+        "log_disk_latency": 0.06939244116394865,
+        "cpu_util": 0.06902414950232068,
+        "queue_depth": 0.2925879837493727,
+        "log1p_error_rate": -0.1400558908038891,
+        "mem_pressure": -0.12136784980856485,
+        "cache_hit_ratio": -0.08523890381028391
+      }
+    },
+    "sa-east-c11": {
+      "region": "sa-east",
+      "size": 119,
+      "incident_offset": -0.4356063478916769,
+      "slopes": {
+        "log_disk_latency": 0.8289437856291505,
+        "cpu_util": 0.1852646234648192,
+        "queue_depth": 0.5492800028096371,
+        "log1p_error_rate": 0.029819528169466324,
+        "mem_pressure": 0.4433082290497322,
+        "cache_hit_ratio": 0.190321519379711
+      }
+    },
+    "sa-east-c12": {
+      "region": "sa-east",
+      "size": 294,
+      "incident_offset": -0.1063129154099391,
+      "slopes": {
+        "log_disk_latency": -0.3212215661967141,
+        "cpu_util": 0.24624590582676756,
+        "queue_depth": -0.6949096000292285,
+        "log1p_error_rate": -0.42737158291052785,
+        "mem_pressure": -0.044060406103271964,
+        "cache_hit_ratio": 0.18894446098403445
+      }
+    },
+    "ca-central-c00": {
+      "region": "ca-central",
+      "size": 8,
+      "incident_offset": -1.4160911850385012,
+      "slopes": {
+        "log_disk_latency": -0.14531000249719306,
+        "cpu_util": 0.05068237138185336,
+        "queue_depth": 0.03442474641240469,
+        "log1p_error_rate": -0.09935841001373534,
+        "mem_pressure": -0.28429939029529705,
+        "cache_hit_ratio": 0.04795361261523149
+      }
+    },
+    "ca-central-c01": {
+      "region": "ca-central",
+      "size": 10,
+      "incident_offset": -8.142391574596916,
+      "slopes": {
+        "log_disk_latency": 0.5678167298807796,
+        "cpu_util": -0.2555468445245039,
+        "queue_depth": 0.001153324737911126,
+        "log1p_error_rate": 0.3263581045984675,
+        "mem_pressure": 0.4168469024843015,
+        "cache_hit_ratio": -0.4702838687653096
+      }
+    },
+    "ca-central-c02": {
+      "region": "ca-central",
+      "size": 95,
+      "incident_offset": 1.1235533086022227,
+      "slopes": {
+        "log_disk_latency": 0.2668909331990021,
+        "cpu_util": 0.17438188099663782,
+        "queue_depth": -0.0036282180997656973,
+        "log1p_error_rate": 0.23211480386140454,
+        "mem_pressure": -0.04579938022908904,
+        "cache_hit_ratio": 0.1563180596958281
+      }
+    },
+    "ca-central-c03": {
+      "region": "ca-central",
+      "size": 274,
+      "incident_offset": -0.04341638309533632,
+      "slopes": {
+        "log_disk_latency": 0.45828405733157,
+        "cpu_util": -0.11513658753987353,
+        "queue_depth": -0.5594048949863895,
+        "log1p_error_rate": 0.24047140648110607,
+        "mem_pressure": -0.13640273507545353,
+        "cache_hit_ratio": 0.011054149086227654
+      }
+    },
+    "ca-central-c04": {
+      "region": "ca-central",
+      "size": 43,
+      "incident_offset": 0.4167197109449811,
+      "slopes": {
+        "log_disk_latency": 0.6459146074925639,
+        "cpu_util": 0.20493785641111215,
+        "queue_depth": -0.28664996106450935,
+        "log1p_error_rate": -0.05511899578257482,
+        "mem_pressure": -0.19334085101576073,
+        "cache_hit_ratio": -0.4239654183768705
+      }
+    },
+    "ca-central-c05": {
+      "region": "ca-central",
+      "size": 21,
+      "incident_offset": -0.39911559901722915,
+      "slopes": {
+        "log_disk_latency": -0.1947073731079884,
+        "cpu_util": -0.36117453627480495,
+        "queue_depth": -0.3528289880335817,
+        "log1p_error_rate": -0.33502946706104275,
+        "mem_pressure": -0.33193571064743005,
+        "cache_hit_ratio": 0.14410637470473703
+      }
+    },
+    "ca-central-c06": {
+      "region": "ca-central",
+      "size": 411,
+      "incident_offset": 0.1474498223093994,
+      "slopes": {
+        "log_disk_latency": -0.368368385197201,
+        "cpu_util": 0.8051830188732971,
+        "queue_depth": -0.050408275039176796,
+        "log1p_error_rate": 0.24307296466922088,
+        "mem_pressure": -0.3549026431254498,
+        "cache_hit_ratio": 0.714883357235566
+      }
+    },
+    "ca-central-c07": {
+      "region": "ca-central",
+      "size": 192,
+      "incident_offset": 2.9624096876087824,
+      "slopes": {
+        "log_disk_latency": -0.6090058006472027,
+        "cpu_util": 0.022383516700871908,
+        "queue_depth": 0.09653967350232023,
+        "log1p_error_rate": 0.13313296085341153,
+        "mem_pressure": 0.3714117282552926,
+        "cache_hit_ratio": 0.0309701814240675
+      }
+    },
+    "ca-central-c08": {
+      "region": "ca-central",
+      "size": 8,
+      "incident_offset": 0.903668427571929,
+      "slopes": {
+        "log_disk_latency": 0.3579654002288441,
+        "cpu_util": -0.02272029079463826,
+        "queue_depth": 0.4532531288821977,
+        "log1p_error_rate": -0.2502646518634056,
+        "mem_pressure": 0.1283642050122171,
+        "cache_hit_ratio": -0.2671795030358602
+      }
+    },
+    "ca-central-c09": {
+      "region": "ca-central",
+      "size": 445,
+      "incident_offset": -0.6950124739342141,
+      "slopes": {
+        "log_disk_latency": -0.595157078730565,
+        "cpu_util": -0.1544233743706499,
+        "queue_depth": 0.1395822948065894,
+        "log1p_error_rate": 0.28790954715324635,
+        "mem_pressure": 0.41047544319741,
+        "cache_hit_ratio": 0.16585865033445413
+      }
+    },
+    "ca-central-c10": {
+      "region": "ca-central",
+      "size": 253,
+      "incident_offset": -0.30974498614751583,
+      "slopes": {
+        "log_disk_latency": 0.09574335934957505,
+        "cpu_util": -0.40946083701173475,
+        "queue_depth": 0.284916635198529,
+        "log1p_error_rate": 0.5199286686669518,
+        "mem_pressure": -0.14704837314655175,
+        "cache_hit_ratio": 0.1374735296595174
+      }
+    },
+    "ca-central-c11": {
+      "region": "ca-central",
+      "size": 448,
+      "incident_offset": -0.43587747645631325,
+      "slopes": {
+        "log_disk_latency": 0.3052549436952848,
+        "cpu_util": 0.3636345171855134,
+        "queue_depth": -0.056227538342815665,
+        "log1p_error_rate": 0.168268297180649,
+        "mem_pressure": -0.05780399380771725,
+        "cache_hit_ratio": -0.07974747346519555
+      }
+    },
+    "ca-central-c12": {
+      "region": "ca-central",
+      "size": 8,
+      "incident_offset": 0.8020077710836582,
+      "slopes": {
+        "log_disk_latency": 0.9294896558978786,
+        "cpu_util": -0.11279005540116055,
+        "queue_depth": -0.20083135214844494,
+        "log1p_error_rate": 0.3444453993353233,
+        "mem_pressure": 0.05507862169768797,
+        "cache_hit_ratio": -0.7877159465423514
+      }
+    },
+    "ca-central-c13": {
+      "region": "ca-central",
+      "size": 184,
+      "incident_offset": -0.43882077573096523,
+      "slopes": {
+        "log_disk_latency": -0.7921388493479203,
+        "cpu_util": -0.6340312059041996,
+        "queue_depth": 0.22862153874932895,
+        "log1p_error_rate": -0.2623019483942521,
+        "mem_pressure": 0.1768760603428328,
+        "cache_hit_ratio": -0.18112621205730625
+      }
+    },
+    "af-south-c00": {
+      "region": "af-south",
+      "size": 8,
+      "incident_offset": -0.5010736787583512,
+      "slopes": {
+        "log_disk_latency": -0.8110084075905952,
+        "cpu_util": -0.338730702338313,
+        "queue_depth": 0.04360005910336732,
+        "log1p_error_rate": -0.3290537633497448,
+        "mem_pressure": 0.2765091697725102,
+        "cache_hit_ratio": 0.0396557261504935
+      }
+    },
+    "af-south-c01": {
+      "region": "af-south",
+      "size": 128,
+      "incident_offset": -2.2990113669906367,
+      "slopes": {
+        "log_disk_latency": 0.15510114251083473,
+        "cpu_util": 0.7530705385089652,
+        "queue_depth": 0.22999587227847518,
+        "log1p_error_rate": 0.1284129310350309,
+        "mem_pressure": -0.07069975491410725,
+        "cache_hit_ratio": 0.2225467353166119
+      }
+    },
+    "af-south-c02": {
+      "region": "af-south",
+      "size": 135,
+      "incident_offset": -0.08891127795246469,
+      "slopes": {
+        "log_disk_latency": -0.2716003623441276,
+        "cpu_util": 0.43340498752155626,
+        "queue_depth": 0.8643374280162078,
+        "log1p_error_rate": -0.012658642231196265,
+        "mem_pressure": -0.08337865221063555,
+        "cache_hit_ratio": 0.1350484283678763
+      }
+    },
+    "af-south-c03": {
+      "region": "af-south",
+      "size": 9,
+      "incident_offset": 0.13370011781143623,
+      "slopes": {
+        "log_disk_latency": -0.6556095789578971,
+        "cpu_util": -0.06839397922050891,
+        "queue_depth": -0.2088360300859323,
+        "log1p_error_rate": 0.10912801426181165,
+        "mem_pressure": -0.005651361887226588,
+        "cache_hit_ratio": -0.19436397699544777
+      }
+    },
+    "af-south-c04": {
+      "region": "af-south",
+      "size": 8,
+      "incident_offset": -0.5169041446250366,
+      "slopes": {
+        "log_disk_latency": -0.4329443957262125,
+        "cpu_util": 0.07371915213404152,
+        "queue_depth": 0.22429462201206826,
+        "log1p_error_rate": -0.11469064253329385,
+        "mem_pressure": 0.03472318961503224,
+        "cache_hit_ratio": 0.13819135818087847
+      }
+    },
+    "af-south-c05": {
+      "region": "af-south",
+      "size": 402,
+      "incident_offset": -0.05087154305331792,
+      "slopes": {
+        "log_disk_latency": 0.48487431648819945,
+        "cpu_util": -0.9684996471505608,
+        "queue_depth": -0.7473509930130731,
+        "log1p_error_rate": 0.935231989268651,
+        "mem_pressure": -0.102272024118632,
+        "cache_hit_ratio": -0.18563633534840931
+      }
+    },
+    "af-south-c06": {
+      "region": "af-south",
+      "size": 448,
+      "incident_offset": -0.35703315945934055,
+      "slopes": {
+        "log_disk_latency": -0.7376847527890198,
+        "cpu_util": 0.17410184893930825,
+        "queue_depth": -0.5701939045103622,
+        "log1p_error_rate": -0.3468976927166839,
+        "mem_pressure": 0.10896388941728154,
+        "cache_hit_ratio": 0.11140654144816435
+      }
+    },
+    "af-south-c07": {
+      "region": "af-south",
+      "size": 8,
+      "incident_offset": 2.9312434830979845,
+      "slopes": {
+        "log_disk_latency": -0.3682716497126793,
+        "cpu_util": 0.10626366964895739,
+        "queue_depth": 0.5556533540961106,
+        "log1p_error_rate": -0.5388790953274346,
+        "mem_pressure": 0.22457078972247332,
+        "cache_hit_ratio": -0.43336670084682366
+      }
+    },
+    "af-south-c08": {
+      "region": "af-south",
+      "size": 354,
+      "incident_offset": -0.7612414460821383,
+      "slopes": {
+        "log_disk_latency": -0.13013613745013278,
+        "cpu_util": 0.10633468360465576,
+        "queue_depth": 0.48042975323673975,
+        "log1p_error_rate": -0.4208663432962341,
+        "mem_pressure": 0.043694815700153176,
+        "cache_hit_ratio": 0.39477797927676134
+      }
+    },
+    "me-central-c00": {
+      "region": "me-central",
+      "size": 103,
+      "incident_offset": -0.6398525306796736,
+      "slopes": {
+        "log_disk_latency": -0.2868421292044143,
+        "cpu_util": -0.7378741910439452,
+        "queue_depth": -0.10281066605486663,
+        "log1p_error_rate": -0.2582619962649657,
+        "mem_pressure": -0.2482974437783961,
+        "cache_hit_ratio": 0.05648940189370882
+      }
+    },
+    "me-central-c01": {
+      "region": "me-central",
+      "size": 56,
+      "incident_offset": 0.5744418310226703,
+      "slopes": {
+        "log_disk_latency": 0.3552611674726173,
+        "cpu_util": -0.6072865145128782,
+        "queue_depth": -0.08313647587767688,
+        "log1p_error_rate": 0.05841653254393359,
+        "mem_pressure": 0.41137372958238305,
+        "cache_hit_ratio": 0.12160116598899973
+      }
+    },
+    "me-central-c02": {
+      "region": "me-central",
+      "size": 944,
+      "incident_offset": -0.5057795703652043,
+      "slopes": {
+        "log_disk_latency": -0.7442433241219538,
+        "cpu_util": -0.18874416345928913,
+        "queue_depth": -0.5920120648071,
+        "log1p_error_rate": -0.3037759852321881,
+        "mem_pressure": -0.09940225689970994,
+        "cache_hit_ratio": 0.019588754845724192
+      }
+    },
+    "me-central-c03": {
+      "region": "me-central",
+      "size": 203,
+      "incident_offset": 0.5555653966146155,
+      "slopes": {
+        "log_disk_latency": -0.21198933701141973,
+        "cpu_util": 0.37333249371260335,
+        "queue_depth": 0.08002567160091381,
+        "log1p_error_rate": 0.16991798589279217,
+        "mem_pressure": -0.09794500273280723,
+        "cache_hit_ratio": -0.23565667079349098
+      }
+    },
+    "me-central-c04": {
+      "region": "me-central",
+      "size": 8,
+      "incident_offset": 2.634802919733555,
+      "slopes": {
+        "log_disk_latency": 0.2771139809521733,
+        "cpu_util": 0.0829461331965655,
+        "queue_depth": -0.6335642110205305,
+        "log1p_error_rate": -0.1743704145463334,
+        "mem_pressure": -0.36256161120637276,
+        "cache_hit_ratio": 0.018774028807290056
+      }
+    },
+    "me-central-c05": {
+      "region": "me-central",
+      "size": 116,
+      "incident_offset": -0.6536173126552071,
+      "slopes": {
+        "log_disk_latency": -0.7346160624406188,
+        "cpu_util": -0.09185913140589184,
+        "queue_depth": 0.12117008427708244,
+        "log1p_error_rate": -0.11769715080909636,
+        "mem_pressure": -0.25191480261006327,
+        "cache_hit_ratio": 0.41367991293503803
+      }
+    },
+    "me-central-c06": {
+      "region": "me-central",
+      "size": 54,
+      "incident_offset": 0.4569467318822072,
+      "slopes": {
+        "log_disk_latency": -0.19939693501621,
+        "cpu_util": -0.20352614767356014,
+        "queue_depth": -0.13145237647346195,
+        "log1p_error_rate": 0.0019315747670513024,
+        "mem_pressure": 0.04741425857307478,
+        "cache_hit_ratio": 0.7893017553401824
+      }
+    },
+    "me-central-c07": {
+      "region": "me-central",
+      "size": 8,
+      "incident_offset": 0.002912405027173052,
+      "slopes": {
+        "log_disk_latency": 0.09655720022419208,
+        "cpu_util": -0.03295125868962619,
+        "queue_depth": 0.040997526780015135,
+        "log1p_error_rate": -0.915911001083428,
+        "mem_pressure": 0.3602705872413883,
+        "cache_hit_ratio": 0.14903101843477964
+      }
+    },
+    "me-central-c08": {
+      "region": "me-central",
+      "size": 8,
+      "incident_offset": 0.9563448581580138,
+      "slopes": {
+        "log_disk_latency": 0.2927518048415537,
+        "cpu_util": -0.780996274029733,
+        "queue_depth": -0.6557853408385781,
+        "log1p_error_rate": -0.33479536555317313,
+        "mem_pressure": 0.27615294569485915,
+        "cache_hit_ratio": -0.4273436534003039
+      }
+    }
+  },
+  "unseen_clusters": [
+    "us-east-c18",
+    "us-west-c12",
+    "eu-west-c04",
+    "ap-northeast-c03",
+    "sa-east-c09",
+    "ca-central-c01"
+  ],
+  "incident_rate": 0.21706666666666666,
+  "oracle_numeric_auc": 0.6941879516917835,
+  "oracle_linear_auc": 0.7521410771102102,
+  "bayes_auc": 0.8904786878991793,
+  "split_sizes": {
+    "train": 18000,
+    "test": 6000,
+    "val": 6000
+  },
+  "cluster_size_stats": {
+    "min": 8,
+    "median": 56.0,
+    "max": 1839,
+    "n_below_25": 66
+  }
+}
